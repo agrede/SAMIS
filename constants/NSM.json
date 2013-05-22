@@ -1,0 +1,22 @@
+{
+    "preamble": {
+        "sourceUri": "http://www.ioffe.rssi.ru/SVA/NSM/Semicond/"
+    },
+    "ZBB": {
+        "GaAs": {
+            "kappa": 12.9,
+            "meffhh": 0.51,
+            "mefflh": 0.082
+        },
+        "InAs": {
+            "kappa": 15.15,
+            "meffhh": 0.41,
+            "mefflh": 0.026
+        }
+    },
+    "Bow_ZBB": {
+        "GaInAs": {
+            "kappa": 0.67
+        }
+    }
+}

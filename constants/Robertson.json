@@ -1,0 +1,14 @@
+{
+    "preamble": {
+        "sourceAuthor": ["Robertson, J.","Falabretti, B."],
+        "sourceDOI": ["10.1088/0034-4885/69/2/R02","10.1088/0034-4885/69/2/R02"]
+    },
+    "dielectrics": {
+        "SiO2": {
+            "kappa": 3.9
+        },
+        "Al2O3": {
+            "kappa": 9
+        }
+    }
+}

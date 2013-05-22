@@ -1,0 +1,24 @@
+{4
+    "dielectric": [
+        {
+            "note": "Setting kappa will override material. specified thic is in m",
+            "material": "Al2O3",
+            "thickness": 10e-9
+        }
+    ],
+    "Chan": {
+        "note": "N_A and N_D must be specified even if 0. Group IV semiconductors only use groupA units in m^-3"
+        "crystalStructure":"ZBB",
+        "groupA": [
+            "Ga",
+            "In"
+        ],
+        "groupB": [
+            "As"
+        ],
+        "weightsA": [0.47,0.53],
+        "weightsB": [1],
+        "N_A": 0,
+        "N_D": 1e22
+    }
+}

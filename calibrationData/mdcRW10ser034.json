@@ -1,0 +1,71 @@
+{
+    "date": "2002-12-16",
+    "cal_equipment": [
+        {
+            "use": "capacitance",
+            "manufacturer": "Agilent",
+            "model": "4284A",
+            "serial": "2940J13893",
+            "conditions": "1 MHz, 50mV test signal, 1 m cables, Kelvin connection",
+            "temp": 2.9615e2
+        },
+        {
+            "use": "current",
+            "manufacturer": "Agilent",
+            "model": "4140B",
+            "serial": "2123J01465",
+            "conditions": "Resistance found from slope of I-V plot over +/-1 V range.",
+            "temp": 2.9615e2
+        }
+    ],
+    "capacitors": [1.36e-12,1.02e-11,1.002e-10,1.030e-9],
+    "reference_values": {
+        "r0pF": {
+            "type": "open",
+            "C": 0.00,
+            "C_error": 0.1e-12
+        },
+        "rShort": {
+            "type": "short",
+            "R": 0.00,
+            "R_error": 0.00
+        },
+        "r1pF": {
+            "type": "capacitor",
+            "C": 1.36e-12,
+            "C_error": 0.10680e-12
+        },
+        "r10pF": {
+            "type": "capacitor",
+            "C": 10.2e-12,
+            "C_error": 0.151e-12
+        },
+        "r100pF": {
+            "type": "capacitor",
+            "C": 100.2e-12,
+            "C_error": 0.601e-12
+        },
+        "r1000pF": {
+            "type": "capacitor",
+            "C": 1030e-12,
+            "C_error": 5.25e-12
+        },
+        "r1000pFp160Ohms": {
+            "type": "GC",
+            "G": "_NaN_",
+            "G_error": "_NaN_",
+            "C": 490e-12,
+            "C_error": 2.55e-12
+        },
+        "r1e6Ohms": {
+            "type": "resistor",
+            "R": 1.00e6,
+            "R_error": 5e3
+        },
+        "r1e9Ohms": {
+            "type": "resistor",
+            "R": 0.99e8,
+            "R_error": 4.95e5
+        }
+    }
+}
