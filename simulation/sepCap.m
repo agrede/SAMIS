@@ -17,25 +17,28 @@ op = ones(1,size(p,2));
 oN = ones(1,size(N,2));
 
 for k=1:size(res.Qce,1)
-    indk = find(res.ind(k,:));
+  indk = find(res.ind(k,:));
+  if (length(indk)>1)
     oik = ones(1,length(indk));
     res.Qce(k,:) = -sign(psis(k,on)).*PC.e.*...
-                   trapz(res.y(k.*on,indk),...
-                     (res.nFB(oik,:)-n(indk,:))')';
+                    trapz(res.y(k.*on,indk)',...
+                          (res.nFB(oik,:)-n(indk,:)));
     res.Qch(k,:) = sign(psis(k,op)).*PC.e.*...
-                   trapz(res.y(k.*op,indk),...
-                     (res.pFB(oik,:)-p(indk,:))')';
+                   trapz(res.y(k.*op,indk)',...
+                         (res.pFB(oik,:)-p(indk,:)));
     res.QcI(k,:) = sign(psis(k,oN)).*PC.e.*...
-                   trapz(res.y(k.*oN,indk),...
-                     (res.NFB(oik,:)-N(indk,:))')';
+                   trapz(res.y(k.*oN,indk)',...
+                         (res.NFB(oik,:)-N(indk,:)));
+  endif
 endfor
 
 res.Cce = -(eqLenDiff(res.Qce')./eqLenDiff(psis(:,on)'))';
 res.Cch = -(eqLenDiff(res.Qch')./eqLenDiff(psis(:,op)'))';
 res.CcI = -(eqLenDiff(res.QcI')./eqLenDiff(psis(:,oN)'))';
+res.CcD = PC.epsilon0.*kappas./max(res.y,[],2);
 
 if (nargin > 7)
-   if (nargin < 8)
+   if (nargin < 9)
       Cit = 0;
    endif
    res.Cgblh = (1./Cox+1./(sum(res.Cce,2)+sum(res.CcI,2)+Cit)).^(-1);
@@ -45,6 +48,8 @@ if (nargin > 7)
    res.Cgble = (1./Cox+1./(sum(res.Cch,2)+sum(res.CcI,2)+Cit)).^(-1);
    res.Cgboh = (1./Cox+1./(sum(res.Cch,2))).^(-1);
    res.CgbhI = (1./Cox+1./(sum(res.Cch,2)+sum(res.CcI,2))).^(-1);
+   res.CgbDle = (1./Cox+1./(sum(res.Cch,2)+sum(res.CcI,2)+Cit+res.CcD)).^(-1);
+   res.CgbDlh = (1./Cox+1./(sum(res.Cce,2)+sum(res.CcI,2)+Cit+res.CcD)).^(-1);
 endif
 
 endfunction

@@ -9,7 +9,7 @@ ind0 = [0 0];
 if (~isempty(find(psis==0)))
    ind0 = find(psis==0,1).*[1 1];
 else
-   ind0 = find(psis>0,1).*[1 1]-[0 1];
+   ind0 = find(psis>0,1).*[1 1]-[1 -1];
 endif
 
 idx = (1:length(dely))'*ones(1,length(dely));
