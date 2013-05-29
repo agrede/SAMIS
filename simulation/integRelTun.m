@@ -9,7 +9,7 @@ y = y';
 phit = PC.kB.*T./PC.e;
 m = psib./phit;
 o1 = ones(1,length(n));
-delNS = permute(n0./n(:,o3).*(1-NSR(o1,:))+NSR,[1 3 2]);
+delNS = permute(n0./n(:,o3).*(1-NSR(o1,:))+NSR(o1,:),[1 3 2]);
 
 for k=1:length(psi)
   indk = find(ind(k,:));
