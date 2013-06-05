@@ -33,7 +33,7 @@ function H = plotCombinedDit(VGB,Term,Nicol,Cast,PC)
     leg{k} = 'Castagne and Vapaille (High-Low)';
   endif
 
-  Dit = 1e4.*Dit.*PC.e; % Unit conversion;
+  Dit = 1e-4.*Dit.*PC.e; % Unit conversion;
 
   % Plot -----------------------------------------------------------------------
 
