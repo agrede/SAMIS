@@ -33,7 +33,8 @@ function Res = termanMethod(Cm,V,Sim,Cox,PC)
   Res.psis = interp1(Cgb,psis,Cm,'spline');
   Res.VFB = interp1(Res.psis,V,0,'spline');
   Res.Cc = interp1(psis,Cc,Res.psis,'spline');
-  Res.dVdpsis = ((eqLenDiff(V'))./eqLenDiff(Res.psis'))';
+  Res.VGBPP = interp1(Res.psis,Res.VGB,'spline','pp');
+  Res.dVdpsis = dydx(Res.psis,Res.VGBPP,1);
   Res.Cit = Cox.*(Res.dVdpsis-1)-Res.Cc;
   Res.Dit = Res.Cit./(PC.e).^2;
 endfunction
