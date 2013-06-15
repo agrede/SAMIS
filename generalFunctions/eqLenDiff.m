@@ -5,6 +5,11 @@ function dA = eqLenDiff(A)
 %       A       row vector
 %       
 %       DA      result row vector
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
+
 
 dA = diff(A,[],2);
 

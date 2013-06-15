@@ -16,6 +16,10 @@ function [perm,weights] = ternaryPermitations(A,B,wA,wB)
 %       [PERM,WEIGHTS] = TERNARYPERMITATIONS(A,B,wA,wB)
 %               wA      vector of group A weights (ex: [0.8,0.2]) default ones
 %               wB      vector of group B weights (ex: [0.3,0.7]) default ones
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 if (nargin < 3)
    wA = ones(1,length(A));
@@ -37,7 +41,7 @@ for k1=1:length(A)
             perm{3,ind} = strcat(A{[k1,k2]},B{k3});
             weights(:,ind) = [reshape(wA([k1,k2]),[],1);...
                               prod([wA([k1,k2]),wB(k3)])];
-            ind++;
+            ind = ind+1;
         endfor
     endfor
 endfor
@@ -51,7 +55,7 @@ for k1=1:length(B)
             perm{3,ind} = strcat(A{k3},B{[k1,k2]});
             weights(:,ind) = [reshape(wB([k1,k2]),[],1);...
                               prod([wA(k3),wB([k1,k2])])];
-            ind++;
+            ind= ind+1;
         endfor
     endfor
 endfor

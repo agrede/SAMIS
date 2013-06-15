@@ -39,6 +39,10 @@ function Mos = simMOSCAP(Stack,T,Param,PC,psisRng,neta,approxC,approxV)
 %       psis    surface potential [V]
 %       Cgb     small-signal capacitance density of ideal device [F/m^2] by psis
 %       VGB     potential bias accross device [V] by psis
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 if (nargin < 6)
   psisRng = [0.5 0.5];
@@ -88,8 +92,8 @@ else
     B = moscParam(Param.(Stack.Chan.crystalStructure).(mats{2,k}),T,PC);
     C = struct;
 
-    if (isfield(Param.(strcat("Bow_",Stack.Chan.crystalStructure)),mats{3,k}))
-      C = Param.(strcat("Bow_",Stack.Chan.crystalStructure)).(mats{3,k});
+    if (isfield(Param.(strcat('Bow_',Stack.Chan.crystalStructure)),mats{3,k}))
+      C = Param.(strcat('Bow_',Stack.Chan.crystalStructure)).(mats{3,k});
       C.Eg = C.E_g+weights(2,k).*C.E_g_1;
       C.kappas = C.kappa;
       C.me = [C.meffe;C.meffDOS];

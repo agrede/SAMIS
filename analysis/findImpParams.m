@@ -13,9 +13,13 @@ function P = findImpParams(model,f,A,B)
 %       
 %   P = FINDIMPPARAMS(MODEL,F,A)
 %       Only for Model 2 or 3
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 if (nargin < 3 && model < 2)
-   error("not enough input arguments");
+   error('not enough input arguments');
 endif
 
 if (size(f,1) ~= size(A,1))

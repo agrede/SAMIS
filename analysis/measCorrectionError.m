@@ -1,4 +1,8 @@
 function [res,comp] = measCorrectionError(ref,meas,HP,ITR,ITM,VacR,VacM,VdcR,Cl,T)
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 f = ref.f;
 

@@ -12,6 +12,11 @@ function res = measCorrection(LC,Zom,Zsm,meas)
 %       RES     returns n x m x k with corrections for each different LC
 %
 %  NOTE: all measurements must be at same frequency steps
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
+
 
 res = meas;
 

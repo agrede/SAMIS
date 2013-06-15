@@ -2,6 +2,10 @@ function C = physC()
 % PHYSC structure with physical constants in SI units
 %   Constants from NIST.gov Accessed: 2013-03-09 (2010 values)
 %   Uncertianty values in Uncertainty sub structure
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
   C = struct;
   C.Uncertainty = struct;

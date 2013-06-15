@@ -7,6 +7,10 @@ function Res = nicollianGoetzberger(V,Cm,Gm,f,Cox,PC)
 %       F       frequency of measurments
 %       COX     oxide capacitance density
 %       PC      physical constants
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
   omega = 2.*pi.*f(ones(1,size(Cm,1)),:);
 

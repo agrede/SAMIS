@@ -1,4 +1,8 @@
 function res = avgCVref(ref)
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 res.C = mean(ref.C,1);
 res.G = mean(ref.G,1);

@@ -12,6 +12,10 @@ function res = bode(f,Z,lab,rows,cols,pos)
 %       POS     vector containing position of [mag,angle]
 %       
 % See Also LOGLOG, SEMILOGX, SUBPLOT
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 % Rearange Z complex safe manner
 if (prod(size(f))==max(size(f))) % Only works if f is a vector
@@ -22,7 +26,7 @@ endif
 
 % Default labels
 if (nargin < 3)
-   lab = {"Z","Ohms"};
+   lab = {'Z','Ohms'};
 endif
 
 % Default plot behavior
@@ -40,7 +44,7 @@ endif
 
 loglog(f,abs(Z));
 
-ylabel(strcat("|", lab{1},"| [", lab{2}, "]"));
+ylabel(strcat('|', lab{1},'| [', lab{2}, ']'));
 
 % Angle plot -------------------------------------------------------------------
 subplot(rows,cols,pos(2))
@@ -50,7 +54,7 @@ endif
 
 semilogx(f,angle(Z).*180./pi);
 
-ylabel(strcat("angle(", lab{1}, ") [deg]"));
-xlabel("Frequency [Hz]")
+ylabel(strcat('angle(', lab{1}, ') [deg]'));
+xlabel('Frequency [Hz]')
 
 endfunction

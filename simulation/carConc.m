@@ -17,6 +17,10 @@ function n = carConc(eta,meff,deleta,Eg,modl,T,PC)
 %       PC      physical constants
 %       
 %       N       Carrier concentration result (k x m matrix)
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 n = zeros(length(eta),length(meff));
 

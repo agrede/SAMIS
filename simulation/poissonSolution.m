@@ -10,6 +10,10 @@ function [Qc,Cc,psis] = poissonSolution(eta,rho,T,kappas,PC)
 %       QC      charge density of substrate by surface potential
 %       CC      small-signal capacitance density of substrate by surface potential
 %       PSIS    surface potential
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 psi = PC.kB.*T./PC.e.*eta;          % q(E_C-E_F)
 psi0 = interp1(rho,psi,0,'spline'); % \psi in the bulk (\rho(\psi) = 0)

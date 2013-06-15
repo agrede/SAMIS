@@ -4,9 +4,12 @@ function H = plotOpenShortMeas(Ref)
 %       REF     structure array of reference CF meas
 %
 % See also READCORR, BODE
-
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 bode(Ref.f(1,:),[Ref.Zom;Ref.Zsm]);
-legend({"Open","Short"});
+legend({'Open','Short'});
 
 endfunction

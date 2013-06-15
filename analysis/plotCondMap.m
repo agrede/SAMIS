@@ -14,6 +14,10 @@ function A = plotCondMap(V,f,Gpomega,Vsig,PC,M,crng,lw)
 %       LW      line width, can be useful for exporting
 %
 % See also CONTOURF
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 % Initialize variables ---------------------------------------------------------
 if (nargin < 6) % Find nearest power of 1000 in cm^-3 eV to set magnitude
@@ -26,25 +30,25 @@ Z = 2.5.*10.^(-(M+4)).*Gpomega./PC.e;
 
 
 % Plot -------------------------------------------------------------------------
-set(0,"Defaulttextfontsize",20);
+set(0,'Defaulttextfontsize',20);
 
 contourf(X,Y,Z);
 
 % Customize apearance ----------------------------------------------------------
-set(gca,"yscale","log");
+set(gca,'yscale','log');
 
 % Ticks
-set(gca,"ticklength",[0.025 0.025]);
-set(gca,"xminortick","on");
-set(gca,"yminortick","on");
+set(gca,'ticklength',[0.025 0.025]);
+set(gca,'xminortick','on');
+set(gca,'yminortick','on');
 
 % Axes labels
-xlabel("Applied Bias [V]");
-ylabel("Frequency [Hz]");
+xlabel('Applied Bias [V]');
+ylabel('Frequency [Hz]');
 
 % Line width
 if (nargin > 7)
-  set(findall(gcf,"-property","linewidth"),"linewidth",4);
+  set(findall(gcf,'-property','linewidth'),'linewidth',4);
 endif
 
 % Colors Bar----------------------------
@@ -56,16 +60,16 @@ if (nargin > 6)
 endif
 
 % Make colorbar
-hc = colorbar("NorthOutside");
+hc = colorbar('NorthOutside');
 
 % Colorbar label
 set(get(hc,'xlabel'),'string',...
-    strcat("Gp/(omegaAq^2) [ x 1e", sprintf("%d",M), "1/(cm eV)]"));
+    strcat('Gp/(omegaAq^2) [ x 1e', sprintf('%d',M), '1/(cm eV)]'));
 
 % Pos of color bar
-pos1 = get(gca,"pos");
-pos2 = get(hc,"pos");
-set(hc,"pos",[pos1(1) pos1(2)+pos1(4)+0.01 pos1(3) pos2(4)])
+pos1 = get(gca,'pos');
+pos2 = get(hc,'pos');
+set(hc,'pos',[pos1(1) pos1(2)+pos1(4)+0.01 pos1(3) pos2(4)])
 
 % Vac text -----------------------------
 % Attempts to put the label in the lowest mag spot
@@ -83,7 +87,7 @@ if (~isnan(Vsig))
   else
     n2 = k2-1;
   endif
-  text(X(n1,n2),Y(n1,n2),strcat("Vac = ", sprintf("%d [mVrms]",1e3.*Vsig)));
+  text(X(n1,n2),Y(n1,n2),strcat('Vac = ', sprintf('%d [mVrms]',1e3.*Vsig)));
 endif
 
 endfunction

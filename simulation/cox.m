@@ -6,13 +6,17 @@ function C = cox(Stack,Param,PC)
 %                               also contains thickness
 %               PARAM   material parameter database
 %               PC      physical constants
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 invC = 0; % 1/C
 
 % Loop through each dielectric layer in stack
 for n = 1:length(Stack.dielectric)
     kappa = 1; % Default value
-    if (isfield(Stack.dielectric{n},"kappa")) % User set dielectric
+    if (isfield(Stack.dielectric{n},'kappa')) % User set dielectric
        kappa = stack(n).kappa;
     elseif (isfield(Param.dielectrics,Stack.dielectric{n}.material)) % Mat set
        kappa = Param.dielectrics.(Stack.dielectric{n}.material).kappa;

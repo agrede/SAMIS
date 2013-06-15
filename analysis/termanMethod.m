@@ -7,6 +7,9 @@ function Res = termanMethod(Cm,V,Sim,Cox,PC)
 %       COX     dielectric capacitance density to use
 %       PC      physical constants
 %       
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
   % Find Ideal Cgb with specified Cox ------------------------------------------
   [Cgb,VGB] = cgbVgb(Sim,Cox,0);

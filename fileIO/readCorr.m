@@ -49,11 +49,11 @@ function rtn = readCorr(path,cal)
   
   cal_values = loadjson(cal);
 
-  paths = glob(strcat(path,"*.xls"));
+  paths = glob(strcat(path,'*.xls'));
   k = 1; % Counter for reference capacitors
   for n = 1:length(paths)
-    [tmpS,tmpE,tmpTE,tmpM,tmpT,tmpNM,tmpSP] = regexp(paths{n},"([^\\./]*)\\.xls$");
-    calStd = strcat("r",tmpT{1}{1});
+    [tmpS,tmpE,tmpTE,tmpM,tmpT,tmpNM,tmpSP] = regexp(paths{n},'([^\\./]*)\\.xls$');
+    calStd = strcat('r',tmpT{1}{1});
     if (isfield(cal_values.reference_values,calStd))
        tmpStd = cal_values.reference_values.(calStd);
        tmp = readCF(paths{n});
@@ -66,17 +66,17 @@ function rtn = readCorr(path,cal)
          rtn.fmismatch = 1;
        endif
        
-       if (strcmp(tmpStd.type,"short"))
+       if (strcmp(tmpStd.type,'short'))
          rtn.Zsm       = nanmean(tmp.Z,1);
          rtn.stdev.Zsm = std(tmp.Z,0,1);
          rtn.Ysm       = nanmean(tmp.Y,1);
          rtn.stdev.Ysm = std(tmp.Y,0,1);
-       elseif (strcmp(tmpStd.type,"open"))
+       elseif (strcmp(tmpStd.type,'open'))
          rtn.Zom       = nanmean(tmp.Z,1);
          rtn.stdev.Zom = std(tmp.Z,0,1);
          rtn.Yom       = nanmean(tmp.Y,1);
          rtn.stdev.Yom = std(tmp.Y,0,1);
-       elseif (strcmp(tmpStd.type,"capacitor"))
+       elseif (strcmp(tmpStd.type,'capacitor'))
          rtn.Zrm(k,:)       = nanmean(tmp.Z,1);
          rtn.stdev.Zrm(k,:) = std(tmp.Z,0,1);
          rtn.Yrm(k,:)       = nanmean(tmp.Y,1);
@@ -92,7 +92,7 @@ function rtn = readCorr(path,cal)
          rtn.Zr(k,:)     = tmpImp.Z;
          rtn.Yr(k,:)     = tmpImp.Y;
 
-         k++;
+         k = k+1;
        endif
     else
       calStd

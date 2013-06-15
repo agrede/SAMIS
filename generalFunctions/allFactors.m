@@ -1,4 +1,5 @@
 function f = allFactors(n)
+
 if (n==0)
    f = n;
    return

@@ -3,8 +3,12 @@ function rtn = readCVF(path,ref)
 %   RTN = READCVF(PATH) reads values with no corrections
 %   RTN = READCVF(PATH,REF) reads values and applies corrections from ref
 %   Mostly a wrapper for readCVF.pl
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
-  rtn = loadjson(perl(file_in_loadpath("readCVF.pl"),path));
+  rtn = loadjson(perl(file_in_loadpath('readCVF.pl'),path));
 
   % Calculate Impedance parameters from measured values
   tmp = findImpParams(rtn.Model,rtn.f,rtn.A,rtn.B);

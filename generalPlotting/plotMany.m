@@ -16,6 +16,11 @@ function A = plotMany(X,Y,xLab,yLab,legendPoints,legendTitles,legendPos,lw)
 %       LW      line width 4 is good for export, not for screen
 %
 %   See also PLOT,XLABEL,YLABEL,LEGEND
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
+
 A = struct;
 
 % Set colors, uses slightly inset color range
@@ -26,9 +31,9 @@ set(gca,'ColorOrder',flipdim(clrs(floor((size(clrs,1)-size(Y,2))/2)-1+(1:size(Y,
 A.p = plot(X,Y);
 
 % Tick settings
-set(gca,"ticklength",[0.025 0.025]);
-set(gca,"xminortick","on");
-set(gca,"yminortick","on");
+set(gca,'ticklength',[0.025 0.025]);
+set(gca,'xminortick','on');
+set(gca,'yminortick','on');
 
 % Labels
 if (nargin > 2)
@@ -41,14 +46,14 @@ endif
 % Legend
 if (nargin > 4)
   legText = cell(1,size(Y,2));                  % Cell array same size as n
-  legText(1:size(Y,2)) = {""};                  % Empty text does not show
+  legText(1:size(Y,2)) = {''};                  % Empty text does not show
   legText(legendPoints) = legendTitles;         % Legend titles inserted into correct pos
-  A.l = legend(legText,"location",legendPos);   % Location (no fine tuning alowed)
+  A.l = legend(legText,'location',legendPos);   % Location (no fine tuning alowed)
 endif
 
 % Linewidth
 if (nargin > 7)
-  set(findall(gcf,"-property","linewidth"),"linewidth",lw);
+  set(findall(gcf,'-property','linewidth'),'linewidth',lw);
 endif
 
 endfunction

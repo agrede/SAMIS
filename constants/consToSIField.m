@@ -8,6 +8,10 @@ function [Values,Ranges] = consToSIField(P,FMT,PC,bowing)
 %      Ranges are set when P.field = [low, recomended, high] style
 %   [Values,Ranges] = CONSTANTSIFIELD(P,FMT,PC,bowing)
 %      If bowing is set default values have same matrix size but are 0
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 % Set optional Parameters
 if (nargin < 4)

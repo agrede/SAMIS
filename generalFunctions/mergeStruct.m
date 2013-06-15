@@ -4,6 +4,11 @@ function S = mergeStruct(Ss)
 %  struct takes priority. If the field is a structure. this is merged
 %
 % See also CAT
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
+
 
 S = Ss{1};
 

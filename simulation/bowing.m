@@ -1,4 +1,9 @@
 function AB = bowing(A,B,C,wts)
+%
+% Copywrite (C) 2013 Alex J. Grede
+% GPL v3, See LICENSE.txt for details
+% This function is part of SAMIS (https://github.com/agrede/SAMIS)
+
 if (length(wts) == 1)
    wts = [1-wts;wts];
 endif
