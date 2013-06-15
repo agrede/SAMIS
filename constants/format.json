@@ -4,6 +4,31 @@
             "mult": 1,
             "default": 1,
             "note": "dielectric constant at low frequency"
+        },
+        "E_g": {
+            "mult": "e",
+            "default": "_Inf_",
+            "note": "eV"
+        },
+        "chi": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "electron affinity"
+        },
+        "CNL": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "Charge neutrality level"
+        },
+        "kappaInf": {
+            "mult": 1,
+            "default": 1,
+            "note": "dielectric constant at high frequency"
+        },
+        "S": {
+            "mult": 1,
+            "default": 0,
+            "note": "unitless. Schottky barrier pinning factor"
         }
     },
     "ZBB": {
@@ -142,6 +167,11 @@
             "mult": 1,
             "default": 1,
             "note": "unitless. Dielectric constant at 0Hz"
+        },
+        "Impurities": {
+            "mult": ["e",1e-3],
+            "default": 0,
+            "note": "meV. Ion enrgy for impurities. has Donor and Acceptor structs with elements"
         }
     },
     "WZB": {
@@ -262,7 +292,5 @@
             "default": 0,
             "note": "relative to electron mass (001)"
         }
-    },
-    "Bow_WZB": {
     }
 }

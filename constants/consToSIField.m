@@ -44,10 +44,23 @@ for n=1:length(FN)
   % Set parameter value with unit conversion multiplier ------------------------
   tmp = nan;                            % Init value
   if (isfield(P,FN{n}))                 % Parameter exists
-    tmp = P.(FN{n}).*mult;
-    if (bowing)
-      tmp(logical(isnan(tmp))) = 0;
-    endif
+     if (strcmp(FN{n},"Impurities"))    % Special Case
+       Values.Impurities = struct;
+       Ranges.Impurities = struct;
+       Values.Impurities.Acceptors = structfun(@(x) mult.*x,...
+                                              P.(FN{n}).Acceptors,...
+                                              "UniformOutput",false);
+       Values.Impurities.Donors = structfun(@(x) mult.*x,...
+                                            P.(FN{n}).Donors,...
+                                            "UniformOutput",false);
+       Ranges.Impurities.Donors = nan;          % No support for ranges here
+       Ranges.Impurities.Acceptors = nan;       % No support for ranges here
+     else                               % Normal Case
+       tmp = P.(FN{n}).*mult;
+       if (bowing)
+         tmp(logical(isnan(tmp))) = 0;
+       endif
+     end
   else                                  % Parameter does not exist
      if (bowing)
        tmp = zeros(size(FMT.(FN{n}).default));
@@ -57,7 +70,8 @@ for n=1:length(FN)
   endif
   
   % Set parameter value and range ----------------------------------------------
-  if (size(tmp,2)==3)           % Param is defined in the [low, rec, high] style
+  if (strcmp(FN{n},"Impurities"))
+  elseif (size(tmp,2)==3)           % Param is defined in the [low, rec, high] style
     Values.(FN{n}) = tmp(:,2);
     Ranges.(FN{n}) = tmp(:,[1 3]);
   elseif (size(tmp,2)~=1)       % Paramter is of odd size (no range assumed)
