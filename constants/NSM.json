@@ -6,12 +6,48 @@
         "GaAs": {
             "kappa": 12.9,
             "meffhh": 0.51,
-            "mefflh": 0.082
+            "mefflh": 0.082,
+            "Impurities": {
+                "Donors": {
+                    "Sn": 6,
+                    "Ge": 6,
+                    "Si": 6,
+                    "S":  6,
+                    "Se": 6,
+                    "Te": 6
+                },
+                "Acceptors": {
+                    "C": 20,
+                    "Si": 30,
+                    "Ge": 30,
+                    "Zn": 25,
+                    "Sn": 20,
+                    "Cd": 35
+                }
+            }
         },
         "InAs": {
             "kappa": 15.15,
             "meffhh": 0.41,
-            "mefflh": 0.026
+            "mefflh": 0.026,
+            "Impurities": {
+                "Donors": {
+                    "Sn": 4,
+                    "Ge": 4,
+                    "Si": 4,
+                    "S": 4,
+                    "Se": 4,
+                    "Te": 4,
+                    "Cu": 1
+                },
+                "Acceptors": {
+                    "Cd": 15,
+                    "Si": 20,
+                    "Ge": 14,
+                    "Zn": 10,
+                    "Sn": 10
+                }
+            }
         }
     },
     "Bow_ZBB": {
