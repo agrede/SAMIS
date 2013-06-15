@@ -61,7 +61,6 @@ Mos.Cox = cox(Stack,Param,PC);
 
 kT = PC.kB.*T; % Usefull shorthand
 
-
 if (length(Stack.Chan.groupB)<1)
 % Group IV assumed
 elseif (length(Stack.Chan.groupA)+length(Stack.Chan.groupB)<3)
@@ -73,6 +72,7 @@ elseif (length(Stack.Chan.groupA)+length(Stack.Chan.groupB)<3)
   Mos.Eg = A.Eg;
   Mos.delta_so = A.delta_so;
   Mos.kappas = A.kappas;
+  Mos.Impurities = A.Impurities;
 else
   % Combination of ternaries (only can do up to quaternary?)
   [mats, weights] = ternaryPermitations(Stack.Chan.groupA,Stack.Chan.groupB,...
@@ -85,6 +85,9 @@ else
   Mos.Eg = [0;0;0];
   Mos.delta_so = 0;
   Mos.kappas = 0;
+  Mos.Impurities = struct;
+  Mos.Impurities.Acceptors = struct;
+  Mos.Impurities.Donors = struct;
   
   % Add weighted combinations
   for k=1:size(mats,2)
@@ -105,6 +108,38 @@ else
       C.kappas = 0;
       C.delta_so = 0;
     endif
+    iType = {'Donors','Acceptors'};
+    for k2 = 1:2
+      impElmts = unique([fieldnames(A.Impurities.(iType{k2}));...
+                                   fieldnames(B.Impurities.(iType{k2}))]);
+      for k3 = 1:length(impElmts)
+        if (~isfield(Mos.Impurities.(iType{k2}),impElmts{k3}))
+          Mos.Impurities.(iType{k2}).(impElmts{k3}) = 0;
+        endif
+
+        if (isfield(A.Impurities.(iType{k2}),impElmts{k3}))
+          a = A.Impurities.(iType{k2}).(impElmts{k3});
+        else
+          a = B.Impurities.(iType{k2}).(impElmts{k3});
+        endif
+
+        if (isfield(B.Impurities.(iType{k2}),impElmts{k3}))
+          b = B.Impurities.(iType{k2}).(impElmts{k3});
+        else
+          b = A.Impurities.(iType{k2}).(impElmts{k3});
+        endif
+
+        if (isfield(C.Impurities.(iType{k2}),impElmts{k3}))
+          c = C.Impurities.(iType{k2}).(impElmts{k3});
+        else
+          c = 0;
+        endif
+
+        Mos.Impurities.(iType{k2}).(impElmts{k3}) =...
+             Mos.Impurities.(iType{k2}).(impElmts{k3})...
+             +weights(3,k).*bowing(a,b,c,weights(:,k));
+      endfor
+    endfor
     Mos.me = Mos.me + weights(3,k).*bowing(A.me,B.me,C.me,weights(:,k));
     Mos.Eg = Mos.Eg + weights(3,k).*bowing(A.Eg,B.Eg,C.Eg,weights(:,k));
     Mos.kappas = Mos.kappas + weights(3,k).*bowing(A.kappas,B.kappas,...
@@ -121,14 +156,21 @@ else
   Mos.Eg = Mos.Eg./sum(weights(3,:));
   Mos.kappas = Mos.kappas./sum(weights(3,:));
   Mos.delta_so = Mos.delta_so./sum(weights(3,:));
+  for k2 = 1:2
+    impElmts = fieldnames(Mos.Impurities.(iType{k2}));
+    for k3 = 1:length(impElmts)
+      Mos.Impurities.(iType{k2}).(impElmts{k3}) = ...
+          Mos.Impurities.(iType{k2}).(impElmts{k3})./sum(weights(3,:));
+    endfor
+  endfor
 endif
-
+Mos.etaV = -min(Mos.Eg)./kT;
 Mos.eta = linspace(-(psisRng(1).*PC.e+min(Mos.Eg)),psisRng(2).*PC.e,neta)'./kT;
-Mos.n = carConc(Mos.eta,Mos.me,(min(Mos.Eg)-Mos.Eg)./kT,Mos.Eg,approxC,T,PC);
-Mos.p = carConc(-Mos.eta,Mos.mh,([0;0;-Mos.delta_so]-min(Mos.Eg))./kT,...
-                ([0;0;Mos.delta_so]+min(Mos.Eg)),approxV,T,PC);
-Mos.rho = PC.e.*(sum(Mos.p,2)-sum(Mos.n,2)+Stack.Chan.N_D-Stack.Chan.N_A);
-[Mos.Qc,Mos.Cc,Mos.psis] = poissonSolution(Mos.eta,Mos.rho,T,Mos.kappas,PC);
-[Mos.Cgb,Mos.VGB] = cgbVgb(Mos,Mos.Cox,0);
+% Mos.n = carConc(Mos.eta,Mos.me,(min(Mos.Eg)-Mos.Eg)./kT,Mos.Eg,approxC,T,PC);
+% Mos.p = carConc(-Mos.eta,Mos.mh,([0;0;-Mos.delta_so]-min(Mos.Eg))./kT,...
+%                 ([0;0;Mos.delta_so]+min(Mos.Eg)),approxV,T,PC);
+% Mos.rho = PC.e.*(sum(Mos.p,2)-sum(Mos.n,2)+Stack.Chan.N_D-Stack.Chan.N_A);
+% [Mos.Qc,Mos.Cc,Mos.psis] = poissonSolution(Mos.eta,Mos.rho,T,Mos.kappas,PC);
+% [Mos.Cgb,Mos.VGB] = cgbVgb(Mos,Mos.Cox,0);
 
 endfunction

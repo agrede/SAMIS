@@ -10,7 +10,6 @@ function Mos = moscParam(Param,T,PC)
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 Mos = struct;
-
 % Hole DOS effmass [hh;lh;so] --------------------------------------------------
 % Backup estimates (function could be fixed to give real values)
 [mhhEst,mlhEst] = heffMass(Param.gamma,PC);
@@ -48,5 +47,7 @@ Mos.Eg = bandGap(Param.E_g0, Param.alpha, Param.beta,T,
 Mos.delta_so = Param.delta_so;
 
 Mos.kappas = Param.kappa;
+
+Mos.Impurities = Param.Impurities;
 
 endfunction

@@ -10,7 +10,7 @@ function NI = impurities(eta,etaV,Imps,T,ImpProps,PC)
       iPropT = 'Acceptors';
     endif
     if (isfield(Imps{k},'energy'))
-       etaI = Imps{k}.*PC.e./(PC.kB.*T);
+       etaI = Imps{k}.energy.*1e-3.*PC.e./(PC.kB.*T);
     elseif (isfield(Imps{k},'element'))
       etaI = 0;
       if (isfield(ImpProps,iPropT))
