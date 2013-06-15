@@ -40,7 +40,7 @@ for j=1:length(meff)
       [tmp,err] = fermi_dirac_half(eta+deleta(j));
       n(:,j) = N(j).*tmp;
     elseif (modl(j) == 3) % Fermi-Dirac Statistics
-      [tmp,err] = nonParFermiIntegral(alpha(j),eta,deleta(j));
+      [tmp,err] = nonParFermiIntegral(alpha(j),eta,deleta(j),[0,sqrt(eps)],2);
       n(:,j) = N(j).*tmp;
     endif
 endfor
