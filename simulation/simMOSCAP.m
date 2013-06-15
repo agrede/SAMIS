@@ -128,9 +128,12 @@ else
         else
           b = A.Impurities.(iType{k2}).(impElmts{k3});
         endif
-
-        if (isfield(C.Impurities.(iType{k2}),impElmts{k3}))
-          c = C.Impurities.(iType{k2}).(impElmts{k3});
+        if (isfield(C,'Impurities'))
+          if (isfield(C.Impurities.(iType{k2}),impElmts{k3}))
+            c = C.Impurities.(iType{k2}).(impElmts{k3});
+          else
+            c = 0;
+          endif
         else
           c = 0;
         endif
@@ -166,11 +169,12 @@ else
 endif
 Mos.etaV = -min(Mos.Eg)./kT;
 Mos.eta = linspace(-(psisRng(1).*PC.e+min(Mos.Eg)),psisRng(2).*PC.e,neta)'./kT;
-% Mos.n = carConc(Mos.eta,Mos.me,(min(Mos.Eg)-Mos.Eg)./kT,Mos.Eg,approxC,T,PC);
-% Mos.p = carConc(-Mos.eta,Mos.mh,([0;0;-Mos.delta_so]-min(Mos.Eg))./kT,...
-%                 ([0;0;Mos.delta_so]+min(Mos.Eg)),approxV,T,PC);
-% Mos.rho = PC.e.*(sum(Mos.p,2)-sum(Mos.n,2)+Stack.Chan.N_D-Stack.Chan.N_A);
-% [Mos.Qc,Mos.Cc,Mos.psis] = poissonSolution(Mos.eta,Mos.rho,T,Mos.kappas,PC);
-% [Mos.Cgb,Mos.VGB] = cgbVgb(Mos,Mos.Cox,0);
+Mos.NI = impurities(Mos.eta,Mos.etaV,Stack.Chan.impurities,T,Mos.Impurities,PC);
+Mos.n = carConc(Mos.eta,Mos.me,(min(Mos.Eg)-Mos.Eg)./kT,Mos.Eg,approxC,T,PC);
+Mos.p = carConc(-Mos.eta,Mos.mh,([0;0;-Mos.delta_so]-min(Mos.Eg))./kT,...
+                 ([0;0;Mos.delta_so]+min(Mos.Eg)),approxV,T,PC);
+Mos.rho = PC.e.*(sum([Mos.p -Mos.n Mos.NI,2));
+[Mos.Qc,Mos.Cc,Mos.psis] = poissonSolution(Mos.eta,Mos.rho,T,Mos.kappas,PC);
+[Mos.Cgb,Mos.VGB] = cgbVgb(Mos,Mos.Cox,0);
 
 endfunction
