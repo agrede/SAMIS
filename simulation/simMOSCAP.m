@@ -173,7 +173,7 @@ Mos.NI = impurities(Mos.eta,Mos.etaV,Stack.Chan.impurities,T,Mos.Impurities,PC);
 Mos.n = carConc(Mos.eta,Mos.me,(min(Mos.Eg)-Mos.Eg)./kT,Mos.Eg,approxC,T,PC);
 Mos.p = carConc(-Mos.eta,Mos.mh,([0;0;-Mos.delta_so]-min(Mos.Eg))./kT,...
                  ([0;0;Mos.delta_so]+min(Mos.Eg)),approxV,T,PC);
-Mos.rho = PC.e.*(sum([Mos.p -Mos.n Mos.NI,2));
+Mos.rho = PC.e.*sum([Mos.p -Mos.n Mos.NI],2);
 [Mos.Qc,Mos.Cc,Mos.psis] = poissonSolution(Mos.eta,Mos.rho,T,Mos.kappas,PC);
 [Mos.Cgb,Mos.VGB] = cgbVgb(Mos,Mos.Cox,0);
 
