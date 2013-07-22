@@ -8,13 +8,13 @@ Dependencies
 ------------
 
 * `fermi_dirac_half.m`
-    + GNU Octave: [GNU Scientific Library Package][http://octave.sourceforge.net/gsl/]
+    + GNU Octave: [GNU Scientific Library Package])(http://octave.sourceforge.net/gsl/)
     + MATLAB: A basic method is included if `generalFunctions/fermi_dirac_half_MATLAB.m` is renamed to `fermi_dirac_half.m`
-* [JSONLAB][http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab] (v0.9.1 Included in `fileIO/jsonlab/`)
+* [JSONLAB](http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab] (v0.9.1 Included in `fileIO/jsonlab/`)
 * Only for reading XLS files for analysis of measured data:
-    + [Perl 5][http://perl.org]
-    + Perl package: [JSON][http://search.cpan.org/dist/JSON/] >=v2.59
-    + Perl package: [Spreadsheet::ParseExcel][http://search.cpan.org/dist/Spreadsheet-ParseExcel/] >=v0.59
+    + [Perl 5](http://perl.org)
+    + Perl package: [JSON](http://search.cpan.org/dist/JSON/) >=v2.59
+    + Perl package: [Spreadsheet::ParseExcel](http://search.cpan.org/dist/Spreadsheet-ParseExcel/) >=v0.59
 
 Important Functions
 -------------------
@@ -47,6 +47,6 @@ Although GaAs, InAs, GaInAs, Al2O3, SiO2 material constants are provided. Other 
     + Source preference is determined by order in cell array (any constants in source2 that have already been defined by source1 will be ignored)
 * `fileIO/jsonlab/savejson.m` is used to save the structure into a JSON file
 
-1. I. Vurgaftman, J. R. Meyer, and L. R. Ram-Mohan, [“Band parameters for III-V compound semiconductors and their alloys,”][http://dx.doi.org/10.1063/1.1368156] Journal of Applied Physics, vol. 89, no. 11, p. 5815, 2001.
+1. I. Vurgaftman, J. R. Meyer, and L. R. Ram-Mohan, [“Band parameters for III-V compound semiconductors and their alloys,”](http://dx.doi.org/10.1063/1.1368156) Journal of Applied Physics, vol. 89, no. 11, p. 5815, 2001.
 2. NSM Archive, http://www.ioffe.rssi.ru/SVA/NSM/Semicond/
-3. J. Robertson, [“High dielectric constant gate oxides for metal oxide Si transistors,”][http://dx.doi.org/10.1088/0034-4885/69/2/R02] Reports on Progress in Physics, vol. 69, no. 2, pp. 327–396, Feb. 2006.
+3. J. Robertson, [“High dielectric constant gate oxides for metal oxide Si transistors,”](http://dx.doi.org/10.1088/0034-4885/69/2/R02) Reports on Progress in Physics, vol. 69, no. 2, pp. 327–396, Feb. 2006.
