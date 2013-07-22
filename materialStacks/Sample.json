@@ -1,13 +1,13 @@
-{4
+{
     "dielectric": [
         {
-            "note": "Setting kappa will override material. specified thic is in m",
+            "note": "Setting kappa will override material. Specified thickness is in m",
             "material": "Al2O3",
             "thickness": 10e-9
         }
     ],
     "Chan": {
-        "note": "N_A and N_D must be specified even if 0. Group IV semiconductors only use groupA units in m^-3"
+        "note": "N_A and N_D must be specified even if 0. Group IV semiconductors only use groupA"
         "crystalStructure":"ZBB",
         "groupA": [
             "Ga",
@@ -18,7 +18,13 @@
         ],
         "weightsA": [0.47,0.53],
         "weightsB": [1],
-        "N_A": 0,
-        "N_D": 1e22
+        "impurities": [
+            {
+                "notes": "energy [meV] or element can be specified, if not ideal is assumed. Type can be A or D for acceptors or donors respectively. Type is A or D for acceptor or donor respectively. Concentration is in m^-3",
+                "type": "D",
+                "element": "Si",
+                "concentration": 1e23
+            }
+        ]
     }
 }

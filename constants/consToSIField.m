@@ -44,20 +44,20 @@ for n=1:length(FN)
   % Set parameter value with unit conversion multiplier ------------------------
   tmp = nan;                            % Init value
   if (isfield(P,FN{n}))                 % Parameter exists
-     if (strcmp(FN{n},"Impurities"))    % Special Case
+     if (strcmp(FN{n},'Impurities'))    % Special Case
        Values.Impurities = struct;
        Ranges.Impurities = struct;
        if (isfield(P.(FN{n}),'Acceptors'))
          Values.Impurities.Acceptors = structfun(@(x) mult.*x,...
                                                  P.(FN{n}).Acceptors,...
-                                                 "UniformOutput",false);
+                                                 'UniformOutput',false);
        else
          Values.Impurities.Acceptors = struct;
        endif
        if (isfield(P.(FN{n}),'Donors'))
          Values.Impurities.Donors = structfun(@(x) mult.*x,...
                                               P.(FN{n}).Donors,...
-                                              "UniformOutput",false);
+                                              'UniformOutput',false);
        else
          Values.Impurities.Donors = struct;
        endif
@@ -78,7 +78,7 @@ for n=1:length(FN)
   endif
   
   % Set parameter value and range ----------------------------------------------
-  if (strcmp(FN{n},"Impurities"))
+  if (strcmp(FN{n},'Impurities'))
   elseif (size(tmp,2)==3)           % Param is defined in the [low, rec, high] style
     Values.(FN{n}) = tmp(:,2);
     Ranges.(FN{n}) = tmp(:,[1 3]);
