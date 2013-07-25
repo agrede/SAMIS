@@ -8,7 +8,7 @@ function r = analysisLoadPaths()
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
-selfPath = file_in_loadpath('analysisLoadPaths.m');
+selfPath = which('analysisLoadPaths.m');
 selfPath = strtrunc(selfPath,rindex(selfPath,'/'));
 
 
