@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
+<run>
+    <tool>
+        <title>SAMIS</title>
+        <about>Temp</about>
+        <command>octave --silent --eval "infile='@driver',path('@tool',path),raptureTemp"</command>
+    </tool>
+    <input>
+        <number id="Al">
+            <about>
+                <label>Al</label>
+                <description>Al composition</description>
+            </about>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+        </number>
+        <number id="Ga">
+            <about>
+                <label>Ga</label>
+                <description>Ga composition</description>
+            </about>
+            <min>0</min>
+            <max>1</max>
+            <default>0.47</default>
+        </number>
+        <number id="In">
+            <about>
+                <label>In</label>
+                <description>In composition</description>
+            </about>
+            <min>0</min>
+            <max>1</max>
+            <default>0.53</default>
+        </number>
+        <number id="P">
+            <about>
+                <label>P</label>
+                <description>P composition</description>
+            </about>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+        </number>
+        <number id="As">
+            <about>
+                <label>As</label>
+                <description>As composition</description>
+            </about>
+            <min>0</min>
+            <max>1</max>
+            <default>1</default>
+        </number>
+        <number id="Sb">
+            <about>
+                <label>Sb</label>
+                <description>Sb composition</description>
+            </about>
+            <min>0</min>
+            <max>1</max>
+            <default>0</default>
+        </number>
+        <number id="acceptor_level">
+            <about>
+                <label>N_A</label>
+            </about>
+            <min>0</min>
+            <max>1e23</max>
+            <default>0</default>
+        </number>
+        <boolean id="acceptor_ideal">
+            <about><label>Ideal acceptors</label></about>
+            <default>off</default>
+        </boolean>
+        <number id="acceptor_energy">
+            <about>
+                <label>E_A</label>
+                <description>Acceptor ionization energy from the edge of the valance band (negative values are inside the band)</description>
+                <enable>input.boolean(acceptor_ideal)</enable>
+            </about>
+            <units>eV</units>
+            <default>0</default>
+        </number>
+        <number id="donor_level">
+            <about>
+                <label>N_D</label>
+            </about>
+            <min>0</min>
+            <max>1e23</max>
+            <default>0</default>
+        </number>
+        <boolean id="donor_ideal">
+            <about><label>Ideal acceptors</label></about>
+            <default>off</default>
+        </boolean>
+        <number id="donor_energy">
+            <about>
+                <label>E_D</label>
+                <description>Donor ionization energy from the edge of the conduction band (negative values are inside the band)</description>
+                <enable>input.boolean(donor_ideal)</enable>
+            </about>
+            <units>eV</units>
+            <default>0</default>
+        </number>
+        <number id="temperature">
+            <about>
+                <label>Temperature</label>
+            </about>
+            <units>K</units>
+            <min>0</min>
+            <max>500</max>
+            <default>300</default>
+        </number>
+        <number id="range_valance">
+            <about>
+                <label>E_V-E_F</label>
+                <description>How far above the Fermi-level can the valance band be</description>
+            </about>
+            <units>eV</units>
+            <default>0.2eV</default>
+        </number>
+        <number id="range_conduction">
+            <about>
+                <label>E_F-E_C</label>
+                <description>How far below the Fermi level can the conduction band at the surface be</description>
+            </about>
+            <units>eV</units>
+            <default>0.2eV</default>
+        </number>
+    </input>
+</run>
