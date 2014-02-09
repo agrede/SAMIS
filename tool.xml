@@ -210,7 +210,7 @@
                     <description>Number of energy levels to simulate</description>
                 </about>
                 <min>100</min>
-                <max>1200</max>
+                <max>12000</max>
                 <default>5001</default>
             </integer>
         </group>
