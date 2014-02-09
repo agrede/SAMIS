@@ -182,22 +182,213 @@
             <max>500</max>
             <default>300</default>
         </number>
-        <number id="range_valance">
+        <group id="sim_range">
+            <number id="valance">
+                <about>
+                    <label>max(E_V-E_F)</label>
+                    <description>How far above the Fermi-level can the valance band be</description>
+                </about>
+                <units>eV</units>
+                <default>0.2eV</default>
+            </number>
+            <number id="conduction">
+                <about>
+                    <label>max(E_F-E_C)</label>
+                    <description>How far below the Fermi level can the conduction band at the surface be</description>
+                </about>
+                <units>eV</units>
+                <default>0.2eV</default>
+            </number>
+        </group>
+        <group id="dos">
             <about>
-                <label>max(E_V-E_F)</label>
-                <description>How far above the Fermi-level can the valance band be</description>
+                <label>Density of States</label>
+                <layout>vertical</layout>
             </about>
-            <units>eV</units>
-            <default>0.2eV</default>
-        </number>
-        <number id="range_conduction">
-            <about>
-                <label>max(E_F-E_C)</label>
-                <description>How far below the Fermi level can the conduction band at the surface be</description>
-            </about>
-            <units>eV</units>
-            <default>0.2eV</default>
-        </number>
+            <group id="conduction">
+                <about>
+                    <label>Conduction Band</label>
+                    <layout>horizontal</layout>
+                </about>
+                <choice id="gamma">
+                    <about><label>Gamma</label></about>
+                    <option>
+                        <about>
+                            <label>NPFD</label>
+                            <description>Non-parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>PFD</label>
+                            <description>Parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Boltzmann</label>
+                            <description>Boltzmann approximation</description>
+                        </about>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Ignore</label>
+                            <description>Carriers are ignored</description>
+                        </about>
+                        <value>0</value>
+                    </option>
+                    <default>NPFD</default>
+                </choice>
+                <choice id="lambda">
+                    <about><label>Lambda</label></about>
+                    <option>
+                        <about>
+                            <label>NPFD</label>
+                            <description>Non-parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>PFD</label>
+                            <description>Parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Boltzmann</label>
+                            <description>Boltzmann approximation</description>
+                        </about>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Ignore</label>
+                            <description>Carriers are ignored</description>
+                        </about>
+                        <value>0</value>
+                    </option>
+                    <default>PFD</default>
+                </choice>
+                <choice id="chi">
+                    <about><label>Chi</label></about>
+                    <option>
+                        <about>
+                            <label>NPFD</label>
+                            <description>Non-parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>3</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>PFD</label>
+                            <description>Parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Boltzmann</label>
+                            <description>Boltzmann approximation</description>
+                        </about>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Ignore</label>
+                            <description>Carriers are ignored</description>
+                        </about>
+                        <value>0</value>
+                    </option>
+                    <default>PFD</default>
+                </choice>
+            </group>
+            <group id="valance">
+                <about>
+                    <label>Valance Band</label>
+                    <layout>horizontal</layout>
+                </about>
+                <choice id="hh">
+                    <about><label>Heavy Hole</label></about>
+                    <option>
+                        <about>
+                            <label>PFD</label>
+                            <description>Parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Boltzmann</label>
+                            <description>Boltzmann approximation</description>
+                        </about>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Ignore</label>
+                            <description>Carriers are ignored</description>
+                        </about>
+                        <value>0</value>
+                    </option>
+                    <default>PFD</default>
+                </choice>
+                <choice id="lh">
+                    <about><label>Light Hole</label></about>
+                    <option>
+                        <about>
+                            <label>PFD</label>
+                            <description>Parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Boltzmann</label>
+                            <description>Boltzmann approximation</description>
+                        </about>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Ignore</label>
+                            <description>Carriers are ignored</description>
+                        </about>
+                        <value>0</value>
+                    </option>
+                    <default>PFD</default>
+                </choice>
+                <choice id="so">
+                    <about><label>Split off</label></about>
+                    <option>
+                        <about>
+                            <label>PFD</label>
+                            <description>Parabolic Fermi-Dirac statistics</description>
+                        </about>
+                        <value>2</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Boltzmann</label>
+                            <description>Boltzmann approximation</description>
+                        </about>
+                        <value>1</value>
+                    </option>
+                    <option>
+                        <about>
+                            <label>Ignore</label>
+                            <description>Carriers are ignored</description>
+                        </about>
+                        <value>0</value>
+                    </option>
+                    <default>PFD</default>
+                </choice>
+            </group>
+        </group>
     </input>
     <output>
         <curve id="cgb_psis">
