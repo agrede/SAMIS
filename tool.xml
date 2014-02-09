@@ -94,7 +94,7 @@
                         <description>Acceptor concentration</description>
                     </about>
                     <min>0</min>
-                    <max>1e23m-3</max>
+                    <max>1e23cm-3</max>
                     <default>1e17cm-3</default>
                     <units>cm-3</units>
                 </number>
@@ -127,7 +127,7 @@
                     </about>
                     <size>10</size>
                     <min>0</min>
-                    <max>1e23</max>
+                    <max>1e23cm-3</max>
                     <default>0cm-3</default>
                     <units>cm-3</units>
                 </number>
@@ -159,7 +159,7 @@
                     <label>Thickness</label>
                 </about>
                 <min>0</min>
-                <max>1000</max>
+                <max>1um</max>
                 <default>10nm</default>
                 <units>nm</units>
             </number>
@@ -179,7 +179,7 @@
             </about>
             <units>K</units>
             <min>0</min>
-            <max>500</max>
+            <max>500K</max>
             <default>300</default>
         </number>
         <group id="sim_range">
