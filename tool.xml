@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <?xml version="1.0"?>
 <run>
     <tool>
@@ -7,102 +6,173 @@
         <command>octave --silent --eval "infile='@driver',path('@tool',path),raptureTemp"</command>
     </tool>
     <input>
-        <number id="Al">
+        <group id="composition">
             <about>
-                <label>Al</label>
-                <description>Al composition</description>
+                <label>Crystal Composition</label>
+                <layout>vertical</layout>
             </about>
-            <min>0</min>
-            <max>1</max>
-            <default>0</default>
-        </number>
-        <number id="Ga">
+            <group id="group_a">
+                <about>
+                    <label>Group III</label>
+                    <layout>horizontal</layout>
+                </about>
+                <number id="Al">
+                    <about>
+                        <label>Al</label>
+                        <description>Al composition</description>
+                    </about>
+                    <min>0</min>
+                    <max>1</max>
+                    <default>0.0</default>
+                </number>
+                <number id="Ga">
+                    <about>
+                        <label>Ga</label>
+                        <description>Ga composition</description>
+                    </about>
+                    <min>0</min>
+                    <max>1</max>
+                    <default>0.47</default>
+                </number>
+                <number id="In">
+                    <about>
+                        <label>In</label>
+                        <description>In composition</description>
+                    </about>
+                    <min>0</min>
+                    <max>1</max>
+                    <default>0.53</default>
+                </number>
+            </group>
+            <group id="group_b">
+                <about>
+                    <label>Group V</label>
+                    <layout>horizontal</layout>
+                </about>
+                <number id="P">
+                    <about>
+                        <label>P</label>
+                        <description>P composition</description>
+                    </about>
+                    <min>0</min>
+                    <max>1</max>
+                    <default>0.0</default>
+                </number>
+                <number id="As">
+                    <about>
+                        <label>As</label>
+                        <description>As composition</description>
+                    </about>
+                    <min>0</min>
+                    <max>1</max>
+                    <default>1.0</default>
+                </number>
+                <number id="Sb">
+                    <about>
+                        <label>Sb</label>
+                        <description>Sb composition</description>
+                    </about>
+                    <min>0</min>
+                    <max>1</max>
+                    <default>0.0</default>
+                </number>
+            </group>
+        </group>
+        <group id="doping">
             <about>
-                <label>Ga</label>
-                <description>Ga composition</description>
+                <label>Dopants</label>
+                <layout>vertical</layout>
             </about>
-            <min>0</min>
-            <max>1</max>
-            <default>0.47</default>
-        </number>
-        <number id="In">
+            <group id="acceptors">
+                <about>
+                    <label>Acceptors</label>
+                    <layout>horizontal</layout>
+                </about>
+                <number id="acceptor_level">
+                    <about>
+                        <label>Concentration</label>
+                        <description>Acceptor concentration</description>
+                    </about>
+                    <min>0</min>
+                    <max>1e29m-3</max>
+                    <default>1e17cm-3</default>
+                    <units>m-3</units>
+                </number>
+                <boolean id="acceptor_ideal">
+                    <about>
+                        <label>Ideal</label>
+                        <description>Acceptors are treated as always ionized</description>
+                    </about>
+                    <default>off</default>
+                </boolean>
+                <number id="acceptor_energy">
+                    <about>
+                        <label>Energy</label>
+                        <description>Acceptor ionization energy from the edge of the valance band (negative values are inside the band)</description>
+                        <enable>input.group(doping).group(acceptors).boolean(acceptor_ideal)=="no"</enable>
+                    </about>
+                    <units>eV</units>
+                    <default>0</default>
+                </number>
+            </group>
+            <group id="donors">
+                <about>
+                    <label>Donors</label>
+                    <layout>horizontal</layout>
+                </about>
+                <number id="donor_level">
+                    <about>
+                        <label>Concentration</label>
+                        <description>Donor concentration</description>
+                    </about>
+                    <size>10</size>
+                    <min>0</min>
+                    <max>1e29</max>
+                    <default>0cm-3</default>
+                    <units>m-3</units>
+                </number>
+                <boolean id="donor_ideal">
+                    <about>
+                        <label>Ideal</label>
+                        <description>Donors are treated as always ionized</description>
+                    </about>
+                    <default>off</default>
+                </boolean>
+                <number id="donor_energy">
+                    <about>
+                        <label>Energy</label>
+                        <description>Donor ionization energy from the edge of the conduction band (negative values are inside the band)</description>
+                        <enable>input.group(doping).group(donors).boolean(donor_ideal)=="no"</enable>
+                    </about>
+                    <units>eV</units>
+                    <default>0</default>
+                </number>
+            </group>
+        </group>
+        <group id="insulator">
             <about>
-                <label>In</label>
-                <description>In composition</description>
+                <label>Insulator</label>
+                <layout>horizontal</layout>
             </about>
-            <min>0</min>
-            <max>1</max>
-            <default>0.53</default>
-        </number>
-        <number id="P">
-            <about>
-                <label>P</label>
-                <description>P composition</description>
-            </about>
-            <min>0</min>
-            <max>1</max>
-            <default>0</default>
-        </number>
-        <number id="As">
-            <about>
-                <label>As</label>
-                <description>As composition</description>
-            </about>
-            <min>0</min>
-            <max>1</max>
-            <default>1</default>
-        </number>
-        <number id="Sb">
-            <about>
-                <label>Sb</label>
-                <description>Sb composition</description>
-            </about>
-            <min>0</min>
-            <max>1</max>
-            <default>0</default>
-        </number>
-        <number id="acceptor_level">
-            <about>
-                <label>N_A</label>
-            </about>
-            <min>0</min>
-            <max>1e23</max>
-            <default>0</default>
-        </number>
-        <boolean id="acceptor_ideal">
-            <about><label>Ideal acceptors</label></about>
-            <default>off</default>
-        </boolean>
-        <number id="acceptor_energy">
-            <about>
-                <label>E_A</label>
-                <description>Acceptor ionization energy from the edge of the valance band (negative values are inside the band)</description>
-                <enable>input.boolean(acceptor_ideal)</enable>
-            </about>
-            <units>eV</units>
-            <default>0</default>
-        </number>
-        <number id="donor_level">
-            <about>
-                <label>N_D</label>
-            </about>
-            <min>0</min>
-            <max>1e23</max>
-            <default>0</default>
-        </number>
-        <boolean id="donor_ideal">
-            <about><label>Ideal acceptors</label></about>
-            <default>off</default>
-        </boolean>
-        <number id="donor_energy">
-            <about>
-                <label>E_D</label>
-                <description>Donor ionization energy from the edge of the conduction band (negative values are inside the band)</description>
-                <enable>input.boolean(donor_ideal)</enable>
-            </about>
-            <units>eV</units>
-            <default>0</default>
-        </number>
+            <number id="ins_thick">
+                <about>
+                    <label>Thickness</label>
+                </about>
+                <min>0</min>
+                <max>1000</max>
+                <default>10nm</default>
+                <units>nm</units>
+            </number>
+            <number id="rel_perm">
+                <about>
+                    <label>Relative Permittivity</label>
+                    <description>Relative dielectric permittivity of insulator. Example: SiO2 is 3.9</description>
+                </about>
+                <min>0</min>
+                <max>100</max>
+                <default>9</default>
+            </number>
+        </group>
         <number id="temperature">
             <about>
                 <label>Temperature</label>
@@ -114,7 +184,7 @@
         </number>
         <number id="range_valance">
             <about>
-                <label>E_V-E_F</label>
+                <label>max(E_V-E_F)</label>
                 <description>How far above the Fermi-level can the valance band be</description>
             </about>
             <units>eV</units>
@@ -122,11 +192,33 @@
         </number>
         <number id="range_conduction">
             <about>
-                <label>E_F-E_C</label>
+                <label>max(E_F-E_C)</label>
                 <description>How far below the Fermi level can the conduction band at the surface be</description>
             </about>
             <units>eV</units>
             <default>0.2eV</default>
         </number>
     </input>
+    <output>
+        <curve id="cgb_psis">
+            <about>
+                <label>C_gb by psi_s</label>
+                <description>Small-signal capacitance by surface potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <description>Potential from surface to bulk</description>
+                <units>V</units>
+            </xaxis>
+            <yaxis>
+                <label>Capacitance Density</label>
+                <description>Small-signal capacitance density from gate to body contact</description>
+                <units>uC/cm^2</units>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <log>
+            Output log:
+        </log>
+    </output>
 </run>
