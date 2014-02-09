@@ -183,6 +183,11 @@
             <default>300</default>
         </number>
         <group id="sim_range">
+            <about>
+                <label>Simulation Range</label>
+                <description>Determines the range of surface potential to simulate</description>
+                <layout>horizontal</layout>
+            </about>
             <number id="valance">
                 <about>
                     <label>max(E_V-E_F)</label>
@@ -199,6 +204,15 @@
                 <units>eV</units>
                 <default>0.2eV</default>
             </number>
+            <integer id="nsteps">
+                <about>
+                    <label>N</label>
+                    <description>Number of energy levels to simulate</description>
+                </about>
+                <min>100</min>
+                <max>1200</max>
+                <default>5001</default>
+            </integer>
         </group>
         <group id="dos">
             <about>
