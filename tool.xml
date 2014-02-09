@@ -94,9 +94,9 @@
                         <description>Acceptor concentration</description>
                     </about>
                     <min>0</min>
-                    <max>1e29m-3</max>
+                    <max>1e23m-3</max>
                     <default>1e17cm-3</default>
-                    <units>m-3</units>
+                    <units>cm-3</units>
                 </number>
                 <boolean id="acceptor_ideal">
                     <about>
@@ -127,9 +127,9 @@
                     </about>
                     <size>10</size>
                     <min>0</min>
-                    <max>1e29</max>
+                    <max>1e23</max>
                     <default>0cm-3</default>
-                    <units>m-3</units>
+                    <units>cm-3</units>
                 </number>
                 <boolean id="donor_ideal">
                     <about>
@@ -418,7 +418,7 @@
             <yaxis>
                 <label>Capacitance Density</label>
                 <description>Small-signal capacitance density from gate to body contact</description>
-                <units>uC/cm^2</units>
+                <units>uC/cm2</units>
             </yaxis>
             <component><xy></xy></component>
         </curve>
