@@ -1,0 +1,23 @@
+{
+    "dielectric": [
+        {
+            "kappa": 9,
+            "thickness": 10e-9
+        }
+    ],
+    "Chan": {
+        "crystalStructure":"ZBB",
+        "groupA": [
+            "Al",
+            "Ga",
+            "In"
+        ],
+        "groupB": [
+            "P",
+            "As",
+            "Sb"
+        ],
+        "weightsA": [0,0.47,0.53],
+        "weightsB": [0,1,0]
+    }
+}

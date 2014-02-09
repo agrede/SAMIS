@@ -1,9 +1,9 @@
 lib = rpLib(infile);
 analysisLoadPaths();
 PC = physC();
-
+Props = loadjson('../SAMISextra/master.json');
 % Set up defaults
-Stack = loadjson('../SAMISextra/master.json');
+Stack = loadjson('materialStacks/rapptureDefault.json');
 Stack.Chan.impurities = cell;
 
 % Composition
@@ -54,8 +54,6 @@ for k=l:length(tmp)
     endif
 endfor
 
-[err] = rpLibPutString(lib,'output.log',sprintf('\nGroup III: %g',sum(A)),1);
-[err] = rpLibPutString(lib,'output.log',sprintf('\nGroup V: %g',sum(B)),1);
-[err] = rpLibPutString(lib,'output.log',sprintf('\nNA: %e',NA),1);
+[err] = rpLibPutString(lib,'output.log',savejson('',Stack),1);
 rpLibResult(lib);
 quit;
