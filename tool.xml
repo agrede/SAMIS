@@ -422,6 +422,41 @@
             </yaxis>
             <component><xy></xy></component>
         </curve>
+        <curve id="cgb_vgb">
+            <about>
+                <label>C_gb by V_GB</label>
+                <description>Small-signal capacitance by applied bias</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <description>Applied bias</description>
+                <units>V</units>
+            </xaxis>
+            <yaxis>
+                <label>Capacitance Density</label>
+                <description>Small-signal capacitance density from gate to body contact</description>
+                <units>uC/cm2</units>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="cc_psis">
+            <about>
+                <label>Cc by psi_s</label>
+                <description>Small-signal channel capacitance by surface potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <description>Potential from surface to bulk</description>
+                <units>V</units>
+            </xaxis>
+            <yaxis>
+                <label>Capacitance Density</label>
+                <description>Small-signal capacitance density from channel</description>
+                <scale>log</scale>
+                <units>C/cm2</units>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
         <log>
             Output log:
         </log>

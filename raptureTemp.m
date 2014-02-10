@@ -73,6 +73,7 @@ for k=1:length(tmp)
                         sprintf(strcat('\n',tmp{k}{l},': %g'),approx(l-1,k)),1);
   endfor
 endfor
+psisRng = flipdim(psisRng,2);
 
 [N,err] = rpLibGetDouble(lib,'input.group(sim_range).integer(nsteps).current');
 [err] = rpLibPutString(lib,'output.log',sprintf('\nN: %u\n',N),1);
@@ -88,6 +89,15 @@ tmp = [Sim.psis';1e2.*(Sim.Cgb')];
                        'output.curve(cgb_psis).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+tmp = [Sim.VGB';1e2.*(Sim.Cgb')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(cgb_vgb).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-4.*(Sim.Cc')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(cc_psis).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
 
 rpLibResult(lib);
 quit;
