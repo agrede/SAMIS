@@ -78,5 +78,16 @@ endfor
 [err] = rpLibPutString(lib,'output.log',sprintf('\nN: %u\n',N),1);
 
 [err] = rpLibPutString(lib,'output.log',savejson('',Stack),1);
+
+% Run Simulation
+Sim = simMOSCAP(Stack,T,Props,PC,psisRng,N,approx(:,1),approx(:,2));
+
+% Output Cgb vs. psis
+tmp = [Sim.psis';1e2.*(Sim.Cgb')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(cgb_psis).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+
 rpLibResult(lib);
 quit;
