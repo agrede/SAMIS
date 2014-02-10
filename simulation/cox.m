@@ -17,7 +17,7 @@ invC = 0; % 1/C
 for n = 1:length(Stack.dielectric)
     kappa = 1; % Default value
     if (isfield(Stack.dielectric{n},'kappa')) % User set dielectric
-       kappa = stack(n).kappa;
+       kappa = Stack.dielectric{n}.kappa;
     elseif (isfield(Param.dielectrics,Stack.dielectric{n}.material)) % Mat set
        kappa = Param.dielectrics.(Stack.dielectric{n}.material).kappa;
     endif
