@@ -111,7 +111,7 @@
                         <description>Acceptor ionization energy from the edge of the valance band (negative values are inside the band)</description>
                         <enable>input.group(doping).group(acceptors).boolean(acceptor_ideal)=="no"</enable>
                     </about>
-                    <units>eV</units>
+                    <units>meV</units>
                     <default>0</default>
                 </number>
             </group>
@@ -144,7 +144,7 @@
                         <description>Donor ionization energy from the edge of the conduction band (negative values are inside the band)</description>
                         <enable>input.group(doping).group(donors).boolean(donor_ideal)=="no"</enable>
                     </about>
-                    <units>eV</units>
+                    <units>meV</units>
                     <default>0</default>
                 </number>
             </group>
