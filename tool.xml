@@ -88,7 +88,7 @@
                     <label>Acceptors</label>
                     <layout>horizontal</layout>
                 </about>
-                <number id="acceptor_level">
+                <number id="concentration">
                     <about>
                         <label>Concentration</label>
                         <description>Acceptor concentration</description>
@@ -98,18 +98,18 @@
                     <default>1e17cm-3</default>
                     <units>cm-3</units>
                 </number>
-                <boolean id="acceptor_ideal">
+                <boolean id="ideal">
                     <about>
                         <label>Ideal</label>
                         <description>Acceptors are treated as always ionized</description>
                     </about>
                     <default>off</default>
                 </boolean>
-                <number id="acceptor_energy">
+                <number id="energy">
                     <about>
                         <label>Energy</label>
                         <description>Acceptor ionization energy from the edge of the valance band (negative values are inside the band)</description>
-                        <enable>input.group(doping).group(acceptors).boolean(acceptor_ideal)=="no"</enable>
+                        <enable>input.group(doping).group(acceptors).boolean(ideal)=="no"</enable>
                     </about>
                     <units>meV</units>
                     <default>0</default>
@@ -120,7 +120,7 @@
                     <label>Donors</label>
                     <layout>horizontal</layout>
                 </about>
-                <number id="donor_level">
+                <number id="concentration">
                     <about>
                         <label>Concentration</label>
                         <description>Donor concentration</description>
@@ -131,18 +131,18 @@
                     <default>0cm-3</default>
                     <units>cm-3</units>
                 </number>
-                <boolean id="donor_ideal">
+                <boolean id="ideal">
                     <about>
                         <label>Ideal</label>
                         <description>Donors are treated as always ionized</description>
                     </about>
                     <default>off</default>
                 </boolean>
-                <number id="donor_energy">
+                <number id="energy">
                     <about>
                         <label>Energy</label>
                         <description>Donor ionization energy from the edge of the conduction band (negative values are inside the band)</description>
-                        <enable>input.group(doping).group(donors).boolean(donor_ideal)=="no"</enable>
+                        <enable>input.group(doping).group(donors).boolean(ideal)=="no"</enable>
                     </about>
                     <units>meV</units>
                     <default>0</default>
@@ -154,7 +154,7 @@
                 <label>Insulator</label>
                 <layout>horizontal</layout>
             </about>
-            <number id="ins_thick">
+            <number id="thickness">
                 <about>
                     <label>Thickness</label>
                 </about>
@@ -163,7 +163,7 @@
                 <default>10nm</default>
                 <units>nm</units>
             </number>
-            <number id="rel_perm">
+            <number id="kappa">
                 <about>
                     <label>Relative Permittivity</label>
                     <description>Relative dielectric permittivity of insulator. Example: SiO2 is 3.9</description>
