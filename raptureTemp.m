@@ -26,21 +26,20 @@ endfor
 tmp = {'acceptors','donors'};
 l = 1;
 for k=l:length(tmp)
-    pth = strcat('input.group(doping).group(',tmp{k},').');
-    [tstr,err] = rpLibGetString(lib,...
-                                strcat(pth,'number(concentration).current'));
-    [tdbl,err]   = rpUnitsConvertDbl(tstr,'m-3');
-    if (tdbl>0)
-       Stack.Chan.impurities{l} = struct;
-       Stack.Chan.impurities{l}.type = toupper(substr(tmp{k},1,1));
-       Stack.Chan.impurities{l}.concentration = tdbl;
-       [tstr,err] = rpLibGetString(lib,strcat(pth,'boolean(ideal).current'));
-       if (strcmp(tstr,'no'))
-         [tstr,err] = rpLibGetString(lib,strcat(pth,'number(energy).current'));
-         [Stack.Chan.impurities{l}.energy,err] = rpUnitsConvertDbl(tstr,'meV');
-       endif
-       l=l+1;
+  pth = strcat('input.group(doping).group(',tmp{k},').');
+  [tstr,err] = rpLibGetString(lib,strcat(pth,'number(concentration).current'));
+  [tdbl,err]   = rpUnitsConvertDbl(tstr,'m-3');
+  if (tdbl>0)
+    Stack.Chan.impurities{l} = struct;
+    Stack.Chan.impurities{l}.type = toupper(substr(tmp{k},1,1));
+    Stack.Chan.impurities{l}.concentration = tdbl;
+    [tstr,err] = rpLibGetString(lib,strcat(pth,'boolean(ideal).current'));
+    if (strcmp(tstr,'no'))
+      [tstr,err] = rpLibGetString(lib,strcat(pth,'number(energy).current'));
+      [Stack.Chan.impurities{l}.energy,err] = rpUnitsConvertDbl(tstr,'meV');
     endif
+    l=l+1;
+  endif
 endfor
 
 % Dielectric
@@ -51,6 +50,32 @@ endfor
 [Stack.dielectric{1}.kappa,err] = rpLibGetDouble(lib,...
                             'input.group(insulator).number(kappa).current');
 
+% Sim Parameters
+psisRng = zeros(1,2);
+approx = zeros(3,2);
+
+[tstr,err] = rpLibGetString(lib,'input.number(temperature).current');
+[T,err] = rpUnitsConvertDbl(tstr,'K');
+[err] = rpLibPutString(lib,'output.log',sprintf('\nT: %g\n',T),1);
+
+tmp = {{'conduction','gamma','lambda','chi'},...
+       {'valance','hh','lh','so'}};
+for k=1:length(tmp)
+  [tstr,err] = rpLibGetString(lib,strcat('input.group(sim_range).number(',...
+                                         tmp{k}{1},').current'));
+  [psisRng(k),err] = rpUnitsConvertDbl(tstr,'eV');
+  [err] = rpLibPutString(lib,'output.log',...
+                      sprintf(strcat('\nRng ',tmp{k}{1},': %g'),psisRng(k)),1);
+  pth = strcat('input.group(dos).group(',tmp{k}{1},').choice(');
+  for l=2:length(tmp{k})
+    [approx(l-1,k),err] = rpLibGetDouble(lib,strcat(pth,tmp{k}{l},').current'));
+    [err] = rpLibPutString(lib,'output.log',...
+                        sprintf(strcat('\n',tmp{k}{l},': %g'),approx(l-1,k)),1);
+  endfor
+endfor
+
+[N,err] = rpLibGetDouble(lib,'input.group(sim_range).integer(nsteps).current');
+[err] = rpLibPutString(lib,'output.log',sprintf('\nN: %u\n',N),1);
 
 [err] = rpLibPutString(lib,'output.log',savejson('',Stack),1);
 rpLibResult(lib);
