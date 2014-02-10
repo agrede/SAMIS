@@ -21,6 +21,7 @@ for k=1:length(tmp)
   Stack.Chan.(strcat('weights',tmp{k})) = tdbl(logical(tdbl>0));
 endfor
 
+% Doping
 tmp = {'acceptor','donor'};
 l = 1;
 for k=l:length(tmp)
@@ -53,6 +54,14 @@ for k=l:length(tmp)
        l=l+1;
     endif
 endfor
+
+% Dielectric
+[tstr,err] = rpLibGetString(lib,'input.group(insulator).number(ins_thick).current');
+[Stack.dielectric{1}.thickness,err] = rpUnitsConvertDbl(tstr,'m');
+
+[Stack.dielectric{1}.kappa,err] = rpLibGetDouble(lib,'input.group(insulator).number(rel_perm).current');
+
+
 
 [err] = rpLibPutString(lib,'output.log',savejson('',Stack),1);
 rpLibResult(lib);
