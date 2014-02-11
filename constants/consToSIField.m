@@ -9,7 +9,7 @@ function [Values,Ranges] = consToSIField(P,FMT,PC,bowing)
 %   [Values,Ranges] = CONSTANTSIFIELD(P,FMT,PC,bowing)
 %      If bowing is set default values have same matrix size but are 0
 %
-% Copyright (C) 2013 Alex J. Grede
+% Copyright (C) 2013--2014 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

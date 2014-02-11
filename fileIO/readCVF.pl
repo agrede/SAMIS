@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 #
-# Copyright (C) 2013 Alex J. Grede
+# Copyright (C) 2013--2014 Alex J. Grede
 # GPL v3, See LICENSE.txt for details
 # This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -41,10 +41,10 @@ my ($row_min, $row_max) = $settings->row_range();
 # Read and set values
 for my $row ($row_min .. $row_max) {
     next unless $settings->get_cell($row,3);
-    
+
     my $key = $settings->get_cell($row,0)->unformatted();
     my $value = $settings->get_cell($row,3)->unformatted();
-    
+
     if (defined $rtn->{$key}) {
         $rtn->{$key} = $value +=0; # Set and force to be double
     }
@@ -96,7 +96,7 @@ for my $col (@colData) {
 # Loop can than be with changing frequency or chaning V
 # This is set in the "VFirst" Setting (making it for (f) {for (V) {}} if true)
 my $mindx = 0; # Current measurment index (for multiple measurments)
-my $findx = 0; # Current frequency index 
+my $findx = 0; # Current frequency index
 my $vindx = 0; # Current voltage index
 
 # Read data
@@ -108,7 +108,7 @@ for my $row (($row_min+1) .. $row_max) {
     # Check to see if number of measurments indicates a change in parameters
     if ($mindx == $rtn->{"MeasurementsPerStep"}) {
         $mindx = 0; # Reset measurments counter
-        
+
         # Check for stepping order
         if ($rtn->{"VFirst"}) {         # Indicates for (f) { for (V) {} }
             if (($vindx+1) < $rtn->{"Vsteps"}) { # Increment Voltage counter
@@ -135,10 +135,10 @@ for my $row (($row_min+1) .. $row_max) {
     my $VAC = 0;
     my $IAC = 0;
     # Check to see if VAC and IAC columns exist for backwards compatablity
-    if ($ind->{"IAC"}<=$col_max) { 
+    if ($ind->{"IAC"}<=$col_max) {
        $VAC = $data->get_cell($row,$ind->{"VAC"})->unformatted();
        $IAC = $data->get_cell($row,$ind->{"IAC"})->unformatted();
-    } 
+    }
 
     # Appends data to arrays, Will set measured values to _NaN_ if unbalanced
     $rtn->{"V"}->{"_ArrayData_"}[$findx][$vindx][$mindx] = $V+0;

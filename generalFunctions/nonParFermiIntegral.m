@@ -15,7 +15,7 @@ function [q, err]  = nonParFermiIntegral(alpha,eta,deleta,tol,quadMode)
 %       QUADMODE      1: quadgk 2: quadgk->quad 3: quad
 %   See also QUADGK,QUAD
 %
-% Copyright (C) 2013 Alex J. Grede
+% Copyright (C) 2013--2014 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

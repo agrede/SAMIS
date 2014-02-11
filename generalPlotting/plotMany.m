@@ -17,7 +17,7 @@ function A = plotMany(X,Y,xLab,yLab,legendPoints,legendTitles,legendPos,lw)
 %
 %   See also PLOT,XLABEL,YLABEL,LEGEND
 %
-% Copyright (C) 2013 Alex J. Grede
+% Copyright (C) 2013--2014 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

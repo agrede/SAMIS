@@ -1,10 +1,10 @@
 %
-% Copyright (C) 2013 Alex J. Grede
+% Copyright (C) 2013--2014 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 X = menu(
-        'Select Plot Type:',...         
+        'Select Plot Type:',...
         'Open / Short Measurement',...  % 1
         'Ref Measurement Accuracy',...  % 2
         'C-V',...                       % 3
@@ -36,4 +36,3 @@ switch (X)
   otherwise
     plot(1:10,1:10); % nothing happens
 endswitch
-       
