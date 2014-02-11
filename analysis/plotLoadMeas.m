@@ -3,7 +3,7 @@ function H = plotLoadMeas(Ref)
 %   H = PLOTLOADMEAS(REF)
 %       REF     struct array from load CF measurements
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -24,7 +24,7 @@ function H = plotLoadMeas(Ref)
     C = [Ref.Crm(k(n),:);Ref.Cor.osc.C(k(n),:)];
     leg(l:l+1) = {'As Measured','Open/Short Corr'};
     l = l+2;
-    
+
     % Corrections using one size cap down
     if (n>1)
       C = [C;Ref.Cor.LC.C(k(n),:,k(n-1))];

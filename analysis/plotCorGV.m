@@ -14,7 +14,7 @@ function H = plotCorGV(Meas,CorG,Ref,corToUse,Sim)
 %
 % See Also PLOTMANY
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -38,8 +38,8 @@ if (((nargin < 3)+(~isfield(Meas,'Cor')))>1)    % No reference or no corrections
 elseif (nargin < 4)                             % User supplied reference
   if (size(Meas.Cor.LC.(CorG),3)>0)     % Use Load Corrections
     % Find nearest ref cap (log)
-    medC = median(Meas.C(logical(~isnan(Meas.C)))); 
-    [V,k] = min(abs(log(abs(Ref.Cr./medC)))); 
+    medC = median(Meas.C(logical(~isnan(Meas.C))));
+    [V,k] = min(abs(log(abs(Ref.Cr./medC))));
 
     Y = Meas.Cor.LC.(CorG)(:,:,k);
     H = k;

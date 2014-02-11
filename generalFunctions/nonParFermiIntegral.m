@@ -3,7 +3,7 @@ function [q, err]  = nonParFermiIntegral(alpha,eta,deleta,tol,quadMode)
 %         non-parabolic valley.
 %         Integrand: (sqrt(xi*(*xi+1))*(2*ALPHA*xi+1)*dxi)/(1+exp(xi-ETA-DELETA))
 %         Limits: xi=0 to Inf
-%         
+%
 %   [Q,ERR] = NONPARFERMIINTEGRAL(ALPHA,ETA)
 %       ALPHA   non-parabolic parameter (kT/Eg*(1-m*/me)^2)
 %       ETA     relative energy with 0 being at the band edge
@@ -15,7 +15,7 @@ function [q, err]  = nonParFermiIntegral(alpha,eta,deleta,tol,quadMode)
 %       QUADMODE      1: quadgk 2: quadgk->quad 3: quad
 %   See also QUADGK,QUAD
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

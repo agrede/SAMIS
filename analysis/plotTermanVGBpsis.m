@@ -4,7 +4,7 @@ function H = plotTermanVGBpsis(Term,Sim)
 %
 % See also TERMANMETHOD,SIMMOSCAP
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -13,7 +13,7 @@ function H = plotTermanVGBpsis(Term,Sim)
   plot(Term.simVGB-Term.VFB,Sim.psis,'k');
   hold off;
   legend({'Terman','Ideal'});
-  
+
   % Set limits to (sim can have large VGB/psis values)
   xlim([min(Term.VGB) max(Term.VGB)]);
   ylim([0.8.*min(Term.psis) 1.2.*max(Term.psis)]);

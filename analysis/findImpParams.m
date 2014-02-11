@@ -10,11 +10,11 @@ function P = findImpParams(model,f,A,B)
 %       F       frequency row vector or specified for all A
 %       A       parameter (see above)
 %       B       parameter (see above)
-%       
+%
 %   P = FINDIMPPARAMS(MODEL,F,A)
 %       Only for Model 2 or 3
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

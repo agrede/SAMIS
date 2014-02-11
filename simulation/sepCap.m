@@ -9,7 +9,7 @@ function res = sepCap(psis,Qc,n,p,N,kappas,PC,Cox,Cit)
 %       N       = ionized dopant concentrations (column for each species)
 %       KAPPAS  = relitive dielectric constant for semiconductor
 %       PC      = physical constants
-%       
+%
 % RES = SEPCAP(PSIS,QC,N,P,N,KAPPAS,PC,COX,CIT)
 %       COX     = dielectric capacitance
 % RES = SEPCAP(PSIS,QC,N,P,N,KAPPAS,PC,COX,CIT)
@@ -27,7 +27,7 @@ function res = sepCap(psis,Qc,n,p,N,kappas,PC,Cox,Cit)
 %       Cch     = channel capacitance components of holes
 %       CcI     = channel capacitance components of ionized impurities
 %       CcD     = depletion width capacitance
-%                
+%
 % Additional parameters add additional outputs to RES:
 %       Cgblh   = Cgb less holes
 %       Cgboe   = Cgb only electrons
@@ -37,7 +37,7 @@ function res = sepCap(psis,Qc,n,p,N,kappas,PC,Cox,Cit)
 %       Cgboh   = Cgb only holes
 %       CgbhI   = Cgble less interface states
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -56,7 +56,7 @@ res.pFB = exp(interp1(psis,log(p),0,'spline'))';
 res.nFB = exp(interp1(psis,log(n),0,'spline'))';
 res.NFB = sign(N).*exp(interp1(psis,log(abs(N)),0,'spline'))';
 
-% Set up some common ones matricies 
+% Set up some common ones matricies
 on = ones(1,size(n,2));
 op = ones(1,size(p,2));
 oN = ones(1,size(N,2));
@@ -75,7 +75,7 @@ for k=1:length(psis)            % Loop for each psis
     res.Qch(k,:) = sign(psis(k,op)).*PC.e.*...
                    trapz(res.y(k.*op,indk)',...
                          (res.pFB(oik,:)-p(indk,:)));
-    
+
     % Ions
     res.QcI(k,:) = sign(psis(k,oN)).*PC.e.*...
                    trapz(res.y(k.*oN,indk)',...

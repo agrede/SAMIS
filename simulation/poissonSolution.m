@@ -11,7 +11,7 @@ function [Qc,Cc,psis] = poissonSolution(eta,rho,T,kappas,PC)
 %       CC      small-signal capacitance density of substrate by surface potential
 %       PSIS    surface potential
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

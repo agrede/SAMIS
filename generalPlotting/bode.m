@@ -10,10 +10,10 @@ function res = bode(f,Z,lab,rows,cols,pos)
 %       ROWS    number of rows in subplot
 %       COLS    number of cols in subplot
 %       POS     vector containing position of [mag,angle]
-%       
+%
 % See Also LOGLOG, SEMILOGX, SUBPLOT
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

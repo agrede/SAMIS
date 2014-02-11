@@ -6,11 +6,11 @@ function yp = dydx(x,pp,order)
   %     PP      = struct containing interpolation parameters
   %     ORDER   = derivative order
   %
-  % Copywrite (C) 2013 Alex J. Grede
+  % Copyright (C) 2013 Alex J. Grede
   % GPL v3, See LICENSE.txt for details
   % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
- 
+
   k = lookup(pp.breaks(1:end-1),x); % Find closest interp breakpoints for each x
   o1 = ones(length(x),1);
 

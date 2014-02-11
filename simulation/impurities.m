@@ -13,7 +13,7 @@ function NI = impurities(eta,etaV,Imps,T,ImpProps,PC)
   %    IMPPROPS = contains ionization energies for different elements
   %    PC       = physical constants
   %
-  % Copywrite (C) 2013 Alex J. Grede
+  % Copyright (C) 2013 Alex J. Grede
   % GPL v3, See LICENSE.txt for details
   % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -35,7 +35,7 @@ function NI = impurities(eta,etaV,Imps,T,ImpProps,PC)
       etaI = 0; % uses 0 as a fallback if element does not exist in ImpProps
       if (isfield(ImpProps,iPropT))
         if (isfield(ImpProps.(iPropT),Imps{k}.element))
-          etaI = ImpProps.(iPropT).(Imps{k}.element)./(PC.kB.*T); 
+          etaI = ImpProps.(iPropT).(Imps{k}.element)./(PC.kB.*T);
         endif
       endif
     endif

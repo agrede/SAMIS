@@ -2,8 +2,8 @@ function rtn = readCF(path)
 % READCF Reads CF measurement data in XLS format
 %   Wrapper for readCF.pl
 %   Returns struct from JSON format returned by readCF.pl for given path
-%   
-% Copywrite (C) 2013 Alex J. Grede
+%
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

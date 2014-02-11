@@ -6,8 +6,8 @@ function Res = termanMethod(Cm,V,Sim,Cox,PC)
 %       SIM     simulation model
 %       COX     dielectric capacitance density to use
 %       PC      physical constants
-%       
-% Copywrite (C) 2013 Alex J. Grede
+%
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

@@ -6,11 +6,11 @@ function [y,ind] = yByEta(psis,Qc,kappa,PC)
 %       QC      = channel charge density
 %       KAPPA   = semiconductor relitive dielectric constant
 %       PC      = physical constants
-% Outputs: 
+% Outputs:
 %       Y       = postion for each psis condition and psi value
 %       IND     = logical matrix of valid points
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

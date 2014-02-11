@@ -4,10 +4,10 @@ function [q, err]  = fermi_dirac_half_MATLAB(eta,tol)
 %       ETA     relative energy with 0 being at the band edge
 %   [Q,ERR] = FERMI_DIRAC_HALF_MATLAB(ETA,TOL)
 %       TOL   : [absolute tolerance, relative tolerance] (default=[1e-10,1e-5])
-%       
+%
 %   See also QUADGK
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

@@ -17,10 +17,10 @@ function [Cit,Qit] = citQit(eta, DitD, DitA, T, PC)
   %       2: Acceptor
   %       3: Donor
   %
-  % Copywrite (C) 2013 Alex J. Grede
+  % Copyright (C) 2013 Alex J. Grede
   % GPL v3, See LICENSE.txt for details
   % This function is part of SAMIS (https://github.com/agrede/SAMIS)
-  
+
   % Init
   Qit = zeros(length(eta),3);
   Cit = Qit;

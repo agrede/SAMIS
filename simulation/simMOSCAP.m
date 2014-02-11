@@ -22,7 +22,7 @@ function Mos = simMOSCAP(Stack,T,Param,PC,psisRng,neta,approxC,approxV)
 %               1: Maxwell-Boltzmann with parabolic band
 %               2: Fermi-Dirac with parabolic band
 %               3: Fermi-Dirac with non-parabolic band
-%       
+%
 %   MOS has these fields:
 %       Cox     oxide capacitance density used [F/m^2]
 %       me      effective mass of [Gamma;X;L] valleys [kg]
@@ -40,7 +40,7 @@ function Mos = simMOSCAP(Stack,T,Param,PC,psisRng,neta,approxC,approxV)
 %       Cgb     small-signal capacitance density of ideal device [F/m^2] by psis
 %       VGB     potential bias accross device [V] by psis
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -88,7 +88,7 @@ else
   Mos.Impurities = struct;
   Mos.Impurities.Acceptors = struct;
   Mos.Impurities.Donors = struct;
-  
+
   % Add weighted combinations
   for k=1:size(mats,2)
     A = moscParam(Param.(Stack.Chan.crystalStructure).(mats{1,k}),T,PC);

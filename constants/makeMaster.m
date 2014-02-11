@@ -3,11 +3,11 @@ function M = makeMaster(paths,PC)
 %       M = MAKEMASTER(PATHS)
 %               PATHS   paths in decending precident for inclusion
 %               PC      physical constants
-%       
+%
 %       Includes preambles of files in preamble.sources
 %       Adds timestamp in ISO 8601 in preamble.compiled
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

@@ -17,7 +17,7 @@ function [perm,weights] = ternaryPermitations(A,B,wA,wB)
 %               wA      vector of group A weights (ex: [0.8,0.2]) default ones
 %               wB      vector of group B weights (ex: [0.3,0.7]) default ones
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
@@ -33,7 +33,7 @@ weights = zeros(3,length(perm));
 ind = 1;        % Current permitation index
 
 % Type AAB Ternary -------------------------------------------------------------
-for k1=1:length(A)      
+for k1=1:length(A)
     for k2=k1+1:length(A)
         for k3=1:length(B)
             perm{1,ind} = strcat(A{k1},B{k3});

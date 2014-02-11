@@ -10,7 +10,7 @@ function Eg = bandGap(E_g0,alpha,beta,T,alphacoth,betacoth)
 %       BETA      should be 0 whenever alphacoth is set
 %       BETACOTH  is for form EG = A*(1-coth(B/T)), 1 when alpha is set
 %
-% Copywrite (C) 2013 Alex J. Grede
+% Copyright (C) 2013 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
