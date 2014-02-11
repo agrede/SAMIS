@@ -3,7 +3,7 @@
     <tool>
         <title>SAMIS</title>
         <about>Temp</about>
-        <command>octave --silent --eval "infile='@driver',path('@tool',path),raptureTemp"</command>
+        <command>octave --silent --eval "infile='@driver',path('@tool',path),samis_gui"</command>
         <!--
             Copyright (C) 2013-2014 Alex J. Grede
             GPL v3, See LICENSE.txt for details
