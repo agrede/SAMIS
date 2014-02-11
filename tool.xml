@@ -2,7 +2,17 @@
 <run>
     <tool>
         <title>SAMIS</title>
-        <about>Temp</about>
+        <about>
+Simulation and Admittance Analysis for Advanced Metal-Insulator-Semiconductor Characterization.
+
+This interface focuses on simulation of III-V MIS capacitors and is part of a larger project.
+
+For more information on the theory behind the calculations see: A.J. Grede &amp; S.L. Rommel, "Components of channel capacitance in metal-insulator-semiconductor capacitors." Journal of Applied Physics 114(11), 114510, 2013, DOI: 10.1063/1.4821835
+
+Material constants used are from:
+- I. Vurgaftman, J.R. Meyer, &amp; L.R. Ram-Mohan, "Band parameters for III-V compound semiconductors and their alloys," Journal of Applied Physics 89(11), 5815, 2001, DOI: 10.1063/1.1368156
+- "NSM Archive," http://www.ioffee.ru/NSM/Semicond/
+        </about>
         <command>octave --silent --eval "infile='@driver',path('@tool',path),samis_gui"</command>
         <!--
             Copyright (C) 2013-2014 Alex J. Grede
