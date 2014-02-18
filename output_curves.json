@@ -1,6 +1,7 @@
 {
     "rho_psi": {
         "group": "rho components by psi",
+        "group_id": "rho_comp_",
         "label": [
             "rho/q",
             "n_NA-",
@@ -18,7 +19,10 @@
             "donors",
             "gamma",
             "lambda",
-            "chi"
+            "chi",
+            "hh",
+            "lh",
+            "so"
         ],
         "description": [
             "Total charge",
@@ -63,8 +67,7 @@
                 2,
                 3
             ],
-            "multiply": 1e-6,
-            "constant_divide": [[1,"e"]],
+            "divide": [[0,1e6],[1,"e"]],
             "label": "Concentration",
             "units": "cm-3",
             "scale": "log",
