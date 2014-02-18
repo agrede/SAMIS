@@ -92,7 +92,21 @@ psisRng = flipdim(psisRng,2);
 % Run Simulation
 Sim = simMOSCAP(Stack,T,Props,PC,psisRng,N,approx(:,1),approx(:,2));
 
+Cap = sepCap(Sim.psis,Sim.Qc,Sim.n,Sim.p,Sim.NI,Sim.kappas,PC);
+
+
+% Output
+
+output_x = {'psis','VGB'};
+output_y = {'Cgb','Cgb',};
+
+
+
+
 % Output Cgb vs. psis
+
+
+
 tmp = [Sim.psis';1e2.*(Sim.Cgb')];
 [err] = rpLibPutString(lib,...
                        'output.curve(cgb_psis).component.xy',...

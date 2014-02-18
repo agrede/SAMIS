@@ -436,7 +436,7 @@ Material constants used are from:
             <yaxis>
                 <label>Capacitance Density</label>
                 <description>Small-signal capacitance density from gate to body contact</description>
-                <units>uC/cm2</units>
+                <units>uF/cm2</units>
             </yaxis>
             <component><xy></xy></component>
         </curve>
@@ -453,7 +453,7 @@ Material constants used are from:
             <yaxis>
                 <label>Capacitance Density</label>
                 <description>Small-signal capacitance density from gate to body contact</description>
-                <units>uC/cm2</units>
+                <units>uF/cm2</units>
             </yaxis>
             <component><xy></xy></component>
         </curve>
@@ -471,7 +471,7 @@ Material constants used are from:
                 <label>Capacitance Density</label>
                 <description>Small-signal capacitance density from channel</description>
                 <scale>log</scale>
-                <units>C/cm2</units>
+                <units>uF/cm2</units>
             </yaxis>
             <component><xy></xy></component>
         </curve>
@@ -643,6 +643,57 @@ Material constants used are from:
                 <units>cm-3</units>
                 <description>Concentration of charge components</description>
                 <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="ccomp_psis_cc">
+            <about>
+                <group>Capacitance Components</group>
+                <label>C_c</label>
+                <description>Channel capacitance density</description>
+            </about>
+            <xaxis>
+                <label>Surface Potential</label>
+                <units>V</units>
+            </xaxis>
+            <yaxis>
+                <label>Capacitance Density</label>
+                <units>uF/cm2</units>
+                <description>Channel capacitance components by area</description>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="ccomp_psis_acceptors">
+            <about>
+                <group>Capacitance Components</group>
+                <label>C_NA-</label>
+                <description>Acceptor ionization capacitance density</description>
+            </about>
+            <xaxis>
+                <label>Surface Potential</label>
+                <units>V</units>
+            </xaxis>
+            <yaxis>
+                <label>Capacitance Density</label>
+                <units>uF/cm2</units>
+                <description>Channel capacitance components by area</description>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="ccomp_psis_donors">
+            <about>
+                <group>Capacitance Components</group>
+                <label>C_ND+</label>
+                <description>Donor ionization capacitance density</description>
+            </about>
+            <xaxis>
+                <label>Surface Potential</label>
+                <units>V</units>
+            </xaxis>
+            <yaxis>
+                <label>Capacitance Density</label>
+                <units>uF/cm2</units>
+                <description>Channel capacitance components by area</description>
             </yaxis>
             <component><xy></xy></component>
         </curve>
