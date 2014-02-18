@@ -8,7 +8,7 @@
 lib = rpLib(infile);
 analysisLoadPaths();
 PC = physC();
-Props = loadjson('../constants/master.json');
+Props = loadjson('constants/master.json');
 % Set up defaults
 Stack = loadjson('materialStacks/rapptureDefault.json');
 Stack.Chan.impurities = cell;
@@ -31,12 +31,14 @@ endfor
 
 % Doping
 tmp = {'acceptors','donors'};
+dopants = {};
 l = 1;
-for k=l:length(tmp)
+for k=1:length(tmp)
   pth = strcat('input.group(doping).group(',tmp{k},').');
   [tstr,err] = rpLibGetString(lib,strcat(pth,'number(concentration).current'));
   [tdbl,err]   = rpUnitsConvertDbl(tstr,'m-3');
   if (tdbl>0)
+    dopants(l) = tmp(k);
     Stack.Chan.impurities{l} = struct;
     Stack.Chan.impurities{l}.type = toupper(substr(tmp{k},1,1));
     Stack.Chan.impurities{l}.concentration = tdbl;
@@ -48,6 +50,8 @@ for k=l:length(tmp)
     l=l+1;
   endif
 endfor
+
+cellfun(@(x) rpLibPutString(lib,'output.log',sprintf('\n%s\n',x),1),dopants);
 
 % Dielectric
 [tstr,err] = rpLibGetString(lib,...
@@ -104,6 +108,50 @@ tmp = [Sim.VGB';1e2.*(Sim.Cgb')];
 tmp = [Sim.psis';1e-4.*(Sim.Cc')];
 [err] = rpLibPutString(lib,...
                        'output.curve(cc_psis).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.rho)')./PC.e];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_rho).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+for k=1:length(dopants)
+  tmp = [Sim.psis';1e-6.*(abs(Sim.NI(:,k))')];
+  [err] = rpLibPutString(lib,...
+                         strcat('output.curve(rho_psi_', ...
+                                dopants{k},...
+                                ').component.xy'),...
+                         sprintf('%12g %12g\n',tmp),0);
+endfor
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.n(:,1))')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_gamma).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.n(:,2))')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_lambda).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.n(:,3))')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_chi).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,1))')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_hh).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,2))')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_lh).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,3))')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(rho_psi_so).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
 rpLibResult(lib);

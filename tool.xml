@@ -475,6 +475,177 @@ Material constants used are from:
             </yaxis>
             <component><xy></xy></component>
         </curve>
+        <curve id="rho_psi_rho">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>rho/q</label>
+                <description>Charge concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_acceptors">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>N_A-</label>
+                <description>Ionized acceptor concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_donors">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>N_D+</label>
+                <description>Ionized donor concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_gamma">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>n_Gamma</label>
+                <description>Gamma valley electrons concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_lambda">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>n_Lambda</label>
+                <description>Lambda valley electrons concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_chi">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>n_Chi</label>
+                <description>Chi valley electrons concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_hh">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>p_hh</label>
+                <description>Heavy hole concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_lh">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>p_lh</label>
+                <description>Light hole concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
+        <curve id="rho_psi_so">
+            <about>
+                <group>Rho Components by psi</group>
+                <label>p_so</label>
+                <description>Split-off hole concentration by potential</description>
+            </about>
+            <xaxis>
+                <label>Potential</label>
+                <units>V</units>
+                <description>Potential difference relative to bulk</description>
+            </xaxis>
+            <yaxis>
+                <label>Concentration</label>
+                <units>cm-3</units>
+                <description>Concentration of charge components</description>
+                <scale>log</scale>
+            </yaxis>
+            <component><xy></xy></component>
+        </curve>
         <log>
             Output log:
         </log>
