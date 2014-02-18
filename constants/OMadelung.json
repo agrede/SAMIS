@@ -1,0 +1,120 @@
+{
+    "preamble": {
+        "sourceAuthor": "Madelung O",
+        "sourceISBN": "9783540404880"
+    },
+    "ZBB": {
+        "AlP": {
+            "kappa": 9.8
+        },
+        "AlSb": {
+            "kappa": 12.04,
+            "Impurities": {
+                "Donors": {
+                    "Te": 68,
+                    "Se": 160
+                }
+            }
+        },
+        "GaAs": {
+            "Impurities": {
+                "Donors": {
+                    "Si": 5.804,
+                    "S": 5.870,
+                    "C": 5.978,
+                    "Ge": 5.978
+                },
+                "Acceptors": {
+                    "Be": 28,
+                    "C": 26,
+                    "Cd": 34.7,
+                    "Ge": 40.4,
+                    "Mg": 28.4,
+                    "Mn": 113.1,
+                    "Si": 34.5,
+                    "Ca": 28.4,
+                    "Hg": 52.5,
+                    "Sn": 167.2,
+                    "Zn": 30.6,
+                    "Ga": 78
+                }
+            }
+        },
+        "GaP": {
+            "Impurities": {
+                "Donors": {
+                    "O": 897,
+                    "S": 107,
+                    "Se": 105,
+                    "Te": 92.6,
+                    "Si": 85,
+                    "Ge": 204,
+                    "Sn": 72,
+                    "Li": 61
+                },
+                "Acceptors": {
+                    "C": 54.3,
+                    "Si": 210,
+                    "Ge": 265,
+                    "Cu": 530,
+                    "Be": 56.6,
+                    "Mg": 59.9,
+                    "Zn": 69.7,
+                    "Cd": 102.2
+                }
+            }
+        },
+        "GaSb": {
+            "Inpurities": {
+                "Donors": {
+                    "Te": 20,
+                    "Se": 30,
+                    "S": 140
+                },
+                "Acceptors": {
+                    "Li": 10,
+                    "Si": 9.4,
+                    "Ge": 9.5,
+                    "Mn": 18,
+                    "Fe": 22,
+                    "Te": 68                   
+                }
+            }
+        },
+        "InAs": {
+            "Impurities": {
+                "Acceptors": {
+                    "Sn": 10,
+                    "Ge": 14,
+                    "Si": 20
+                }
+            }
+        },
+        "InP": {
+            "Impurities": {
+                "Donors": {
+                    "note": 0
+                },
+                "Acceptors": {
+                    "Zn": 46.4,
+                    "Cd": 57,
+                    "Hg": 98,
+                    "C": 41.3,
+                    "Ge": 210,
+                    "Be": 41.3,
+                    "Mg": 46.1,
+                    "Zn": 46.1
+                }
+            }
+        },
+        "InSb": {
+            "Impurities": {
+                "Acceptors": {
+                    "Cd": 7,
+                    "Zn": 9.1,
+                    "Ge": 7                    
+                }
+            }
+        }
+    }
+}
