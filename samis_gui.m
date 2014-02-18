@@ -51,8 +51,6 @@ for k=1:length(tmp)
   endif
 endfor
 
-cellfun(@(x) rpLibPutString(lib,'output.log',sprintf('\n%s\n',x),1),dopants);
-
 % Dielectric
 [tstr,err] = rpLibGetString(lib,...
                             'input.group(insulator).number(thickness).current');
