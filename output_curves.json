@@ -1,0 +1,74 @@
+{
+    "rho_psi": {
+        "group": "rho components by psi",
+        "label": [
+            "rho/q",
+            "n_NA-",
+            "n_ND+",
+            "n_Gamma",
+            "n_Lambda",
+            "n_Chi",
+            "p_hh",
+            "p_lh",
+            "p_so"
+        ],
+        "id": [
+            "rho",
+            "acceptors",
+            "donors",
+            "gamma",
+            "lambda",
+            "chi"
+        ],
+        "description": [
+            "Total charge",
+            "Ionized acceptor",
+            "Ionized donor",
+            "Gamma valley electron",
+            "Lambda valley electron",
+            "Chi valley electron",
+            "Heavy hole",
+            "Light hole",
+            "Split-off hole"
+        ],
+        "description_suffix": "concentration by potential",
+        "x": [
+            "variable": "Sim",
+            "element": "psis",
+            "label": "Potential",
+            "units": "V",
+            "description": "Potential difference relative to bulk"
+        ],
+        "y": [
+            "variable": "Sim"
+            "element": [
+                "rho",
+                "NI",
+                "NI",
+                "n",
+                "n",
+                "n",
+                "p",
+                "p",
+                "p"
+            ],
+            "column": [
+                1,
+                1,
+                2,
+                1,
+                2,
+                3,
+                1,
+                2,
+                3
+            ],
+            "multiply": 1e-6,
+            "constant_divide": [[1,"e"]],
+            "label": "Concentration",
+            "units": "cm-3",
+            "scale": "log",
+            "description": "Concentration of charge components"
+        ]
+    }
+}
