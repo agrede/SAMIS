@@ -8,7 +8,7 @@
 lib = rpLib(infile);
 analysisLoadPaths();
 PC = physC();
-Props = loadjson('../SAMISextra/master.json');
+Props = loadjson('../constants/master.json');
 % Set up defaults
 Stack = loadjson('materialStacks/rapptureDefault.json');
 Stack.Chan.impurities = cell;
