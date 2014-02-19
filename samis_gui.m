@@ -96,6 +96,10 @@ Cap = sepCap(Sim.psis,Sim.Qc,Sim.n,Sim.p,Sim.NI,Sim.kappas,PC);
 
 [err] = rpLibPutString(lib,'output.log',sprintf('\nmh: %g',Sim.mh./PC.me),1);
 [err] = rpLibPutString(lib,'output.log',sprintf('\ndeltaso: %g',Sim.delta_so./PC.e),1);
+[err] = rpLibPutString(lib,'output.log',sprintf('\npFB: %g',Cap.pFB.*1e-6),1);
+[err] = rpLibPutString(lib,'output.log',sprintf('\nnFB: %g',Cap.nFB.*1e-6),1);
+tmp = find(Sim.psis>-0.05);
+[err] = rpLibPutString(lib,'output.log',sprintf('\nPOSso: %u',sum(1.*(Cap.Cch(tmp,3)>0))),1);
 
 % Output
 
@@ -162,13 +166,13 @@ tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,3))')];
                        sprintf('%12g %12g\n',tmp),0);
 
 % Sep Caps
-tmp = [Sim.psis';1e2.*abs(Sim.Cc')];
+tmp = [Sim.psis';1e2.*(Sim.Cc')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_cc).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
 for k=1:length(dopants)
-  tmp = [Sim.psis';1e2.*abs(Cap.CcI(:,k)')];
+  tmp = [Sim.psis';1e2.*(Cap.CcI(:,k)')];
   [err] = rpLibPutString(lib,...
                          strcat('output.curve(ccomp_psis_', ...
                                 dopants{k},...
@@ -176,32 +180,32 @@ for k=1:length(dopants)
                          sprintf('%12g %12g\n',tmp),0);
 endfor
 
-tmp = [Sim.psis';1e2.*abs(Cap.Cce(:,1)')];
+tmp = [Sim.psis';1e2.*(Cap.Cce(:,1)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_gamma).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
-tmp = [Sim.psis';1e2.*abs(Cap.Cce(:,2)')];
+tmp = [Sim.psis';1e2.*(Cap.Cce(:,2)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_lambda).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
-tmp = [Sim.psis';1e2.*abs(Cap.Cce(:,3)')];
+tmp = [Sim.psis';1e2.*(Cap.Cce(:,3)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_chi).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
-tmp = [Sim.psis';1e2.*abs(Cap.Cch(:,1)')];
+tmp = [Sim.psis';1e2.*(Cap.Cch(:,1)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_hh).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
-tmp = [Sim.psis';1e2.*abs(Cap.Cch(:,2)')];
+tmp = [Sim.psis';1e2.*(Cap.Cch(:,2)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_lh).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
-tmp = [Sim.psis';1e2.*abs(Cap.Cch(:,3)')];
+tmp = [Sim.psis';1e2.*(Cap.Cch(:,3)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_so).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
