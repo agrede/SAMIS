@@ -94,18 +94,12 @@ Sim = simMOSCAP(Stack,T,Props,PC,psisRng,N,approx(:,1),approx(:,2));
 
 Cap = sepCap(Sim.psis,Sim.Qc,Sim.n,Sim.p,Sim.NI,Sim.kappas,PC);
 
+[err] = rpLibPutString(lib,'output.log',sprintf('\nmh: %g',Sim.mh./PC.me),1);
+[err] = rpLibPutString(lib,'output.log',sprintf('\ndeltaso: %g',Sim.delta_so./PC.e),1);
 
 % Output
 
-output_x = {'psis','VGB'};
-output_y = {'Cgb','Cgb',};
-
-
-
-
 % Output Cgb vs. psis
-
-
 
 tmp = [Sim.psis';1e2.*(Sim.Cgb')];
 [err] = rpLibPutString(lib,...
@@ -120,6 +114,7 @@ tmp = [Sim.VGB';1e2.*(Sim.Cgb')];
 tmp = [Sim.psis';1e-4.*(Sim.Cc')];
 [err] = rpLibPutString(lib,...
                        'output.curve(cc_psis).component.xy',...
+
                        sprintf('%12g %12g\n',tmp),0);
 
 tmp = [Sim.psis';1e-6.*(abs(Sim.rho)')./PC.e];
@@ -165,6 +160,52 @@ tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,3))')];
 [err] = rpLibPutString(lib,...
                        'output.curve(rho_psi_so).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
+
+% Sep Caps
+tmp = [Sim.psis';1e2.*abs(Sim.Cc')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_cc).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+for k=1:length(dopants)
+  tmp = [Sim.psis';1e2.*abs(Cap.CcI(:,k)')];
+  [err] = rpLibPutString(lib,...
+                         strcat('output.curve(ccomp_psis_', ...
+                                dopants{k},...
+                                ').component.xy'),...
+                         sprintf('%12g %12g\n',tmp),0);
+endfor
+
+tmp = [Sim.psis';1e2.*abs(Cap.Cce(:,1)')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_gamma).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e2.*abs(Cap.Cce(:,2)')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_lambda).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e2.*abs(Cap.Cce(:,3)')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_chi).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e2.*abs(Cap.Cch(:,1)')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_hh).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e2.*abs(Cap.Cch(:,2)')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_lh).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
+tmp = [Sim.psis';1e2.*abs(Cap.Cch(:,3)')];
+[err] = rpLibPutString(lib,...
+                       'output.curve(ccomp_psis_so).component.xy',...
+                       sprintf('%12g %12g\n',tmp),0);
+
 
 rpLibResult(lib);
 quit;
