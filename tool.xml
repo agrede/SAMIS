@@ -7,6 +7,8 @@ Simulation and Admittance Analysis for Advanced Metal-Insulator-Semiconductor Ch
 
 This interface focuses on simulation of III-V MIS capacitors and is part of a larger project.
 
+* Note: Small depletion widths and/or low charges cause computation errors for channel capacitance components. This is mostly centered around flat-band.
+
 For more information on the theory behind the calculations see: A.J. Grede &amp; S.L. Rommel, "Components of channel capacitance in metal-insulator-semiconductor capacitors." Journal of Applied Physics 114(11), 114510 (2013), DOI: 10.1063/1.4821835
 
 Material constants used are from:
@@ -178,7 +180,7 @@ Material constants used are from:
                 </about>
                 <min>0</min>
                 <max>1um</max>
-                <default>10nm</default>
+                <default>4.3nm</default>
                 <units>nm</units>
             </number>
             <number id="kappa">
@@ -188,7 +190,7 @@ Material constants used are from:
                 </about>
                 <min>0</min>
                 <max>100</max>
-                <default>9</default>
+                <default>3.9</default>
             </number>
         </group>
         <number id="temperature">
