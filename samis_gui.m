@@ -103,29 +103,33 @@ tmp = find(Sim.psis>-0.05);
 
 % Output
 
-% Output Cgb vs. psis
-
+% Cgb vs. psis
 tmp = [Sim.psis';1e2.*(Sim.Cgb')];
 [err] = rpLibPutString(lib,...
                        'output.curve(cgb_psis).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+% Cgb vs. VGB
 tmp = [Sim.VGB';1e2.*(Sim.Cgb')];
 [err] = rpLibPutString(lib,...
                        'output.curve(cgb_vgb).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+% Cc vs. psis
 tmp = [Sim.psis';1e-4.*(Sim.Cc')];
 [err] = rpLibPutString(lib,...
                        'output.curve(cc_psis).component.xy',...
-
                        sprintf('%12g %12g\n',tmp),0);
 
+% Rho components vs psi
+
+% rho
 tmp = [Sim.psis';1e-6.*(abs(Sim.rho)')./PC.e];
 [err] = rpLibPutString(lib,...
                        'output.curve(rho_psi_rho).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+% Dopants
 for k=1:length(dopants)
   tmp = [Sim.psis';1e-6.*(abs(Sim.NI(:,k))')];
   [err] = rpLibPutString(lib,...
@@ -135,6 +139,7 @@ for k=1:length(dopants)
                          sprintf('%12g %12g\n',tmp),0);
 endfor
 
+% electrons
 tmp = [Sim.psis';1e-6.*(abs(Sim.n(:,1))')];
 [err] = rpLibPutString(lib,...
                        'output.curve(rho_psi_gamma).component.xy',...
@@ -150,6 +155,7 @@ tmp = [Sim.psis';1e-6.*(abs(Sim.n(:,3))')];
                        'output.curve(rho_psi_chi).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+% holes
 tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,1))')];
 [err] = rpLibPutString(lib,...
                        'output.curve(rho_psi_hh).component.xy',...
@@ -165,12 +171,15 @@ tmp = [Sim.psis';1e-6.*(abs(Sim.p(:,3))')];
                        'output.curve(rho_psi_so).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
-% Sep Caps
+% Cc components vs psis
+
+% Cc
 tmp = [Sim.psis';1e2.*(Sim.Cc')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_cc).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+% Dopants
 for k=1:length(dopants)
   tmp = [Sim.psis';1e2.*(Cap.CcI(:,k)')];
   [err] = rpLibPutString(lib,...
@@ -180,6 +189,7 @@ for k=1:length(dopants)
                          sprintf('%12g %12g\n',tmp),0);
 endfor
 
+% electrons
 tmp = [Sim.psis';1e2.*(Cap.Cce(:,1)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_gamma).component.xy',...
@@ -195,6 +205,7 @@ tmp = [Sim.psis';1e2.*(Cap.Cce(:,3)')];
                        'output.curve(ccomp_psis_chi).component.xy',...
                        sprintf('%12g %12g\n',tmp),0);
 
+% holes
 tmp = [Sim.psis';1e2.*(Cap.Cch(:,1)')];
 [err] = rpLibPutString(lib,...
                        'output.curve(ccomp_psis_hh).component.xy',...
