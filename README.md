@@ -44,9 +44,10 @@ Although GaAs, InAs, GaInAs, Al2O3, SiO2 material constants are provided. Other 
 
 * `format.json` is the format for specifying constants
 * Constants used to compile `constants/master.json`:
-    + `constants/Vurgaftman.json` contains band parameters [1]
-    + `constants/NSM.json` contains semiconductor dielectric constants and hole DOS effective masses [2]
-    + `constants/Robertson.json` contains dielectric constants [3]
+    + `constants/Vurgaftman.json` contains band parameters [1] [2]
+    + `constants/NSM.json` contains semiconductor dielectric constants, hole DOS effective masses, and a number of impurity ionization energies. [3]
+    + `constants/OMadelung.json` contains additional semiconductor dielectric constants and impurity ionization energies. [4]
+    + `constants/Robertson.json` contains dielectric constants [5]
 * `constants/makeMaster.m` outputs a structure variable with constants in correct format from a cell array of paths
     + Multiple sources can be merged
     + Source preference is determined by order in cell array (any constants in source2 that have already been defined by source1 will be ignored)
