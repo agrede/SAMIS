@@ -6,11 +6,11 @@
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 lib = rpLib(infile);
-analysisLoadPaths();
+%analysisLoadPaths; only for debuging
 PC = physC();
-Props = loadjson('constants/master.json');
+Props = loadjson('master.json');
 % Set up defaults
-Stack = loadjson('materialStacks/rapptureDefault.json');
+Stack = loadjson('rapptureDefault.json');
 Stack.Chan.impurities = cell;
 
 % Composition
