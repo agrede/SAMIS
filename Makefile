@@ -12,8 +12,12 @@ all:
 
 install:
 	for i in $(FILES) ; do \
-	  cp $$i $(RELEASE_DIR) ; \
-	done
+           install -m 0444 --preserve-timestamps $$i $(RELEASE_DIR) ; \
+        done
 
 clean:
-	rm -rf $(RELEASE_DIR)/*
+
+distclean: clean
+	for i in $(FILES) ; do \
+           rm -f $(RELEASE_DIR)/`basename $$i`; \
+        done
