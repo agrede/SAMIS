@@ -6,7 +6,8 @@
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 lib = rpLib(infile);
-%analysisLoadPaths; only for debuging
+pkg load gsl;
+%analysisLoadPaths; %only for debuging
 PC = physC();
 Props = loadjson('master.json');
 % Set up defaults
