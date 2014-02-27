@@ -18,7 +18,7 @@ Material constants used are from:
 - O. Madelung, Semiconductors: Data Handbook, Springer, 2004, ISBN: 9783540404880
 - J. Robertson, "High dielectric constant gate oxides for metal oxide Si transistors." Reports on Progress in Physics 69, 327–396 (2006), DOI:10.1088/0034-4885/69/2/R02
         </about>
-        <command>octave --silent --eval "infile='@driver',path('@tool',path),samis_gui"</command>
+        <command>octave --silent --eval "infile='@driver',path('@tool/../bin',path),samis_gui"</command>
         <!--
             Copyright (C) 2013-2014 Alex J. Grede
             GPL v3, See LICENSE.txt for details
