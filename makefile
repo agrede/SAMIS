@@ -1,5 +1,5 @@
 PACKAGE = SAMISGUI
-VERSION = 1.2.0
+VERSION = 1.2.1
 RELEASE_DIR = ../bin
 SOURCE_DIR = .
 MAIN_FILE = $(SOURCE_DIR)/samis_gui.m
@@ -16,3 +16,4 @@ install:
 	done
 
 clean:
+	rm -rf $(RELEASE_DIR)/*
