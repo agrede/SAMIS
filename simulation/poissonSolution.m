@@ -16,7 +16,8 @@ function [Qc,Cc,psis] = poissonSolution(eta,rho,T,kappas,PC)
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 
 psi = PC.kB.*T./PC.e.*eta;          % q(E_C-E_F)
-psi0 = interp1(rho,psi,0,'spline'); % \psi in the bulk (\rho(\psi) = 0)
+k = find(rho<=0,1)+(-10:1:10)';     % Only eval spline over points around 0
+psi0 = interp1(rho(k,1),psi(k,1),0,'spline'); % \psi in the bulk (\rho(\psi) = 0)
 psis = psi-psi0;                    % surface potential
 
 % f [n] = \int_{\psi [1]}^{\psi [n]} \rho(\psi) d \psi
