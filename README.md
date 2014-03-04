@@ -6,7 +6,7 @@ Simulation and Admittance Analysis for Advanced Metal-Insulator-Semiconductor Ch
 Collection of Octave/MATLAB functions for use in simulation and characterization of metal-insulator-semiconductor capacitors. Simulation component is available to run at [nanoHub.org](https://nanohub.org/tools/samis/).
 
 For more information on the theory behind the calculations see:
-A.J. Grede and S.L. Rommel, ["Components of channel capacitance in metal-insulator-semiconductor capacitors."](10.1063/1.4821835) Journal of Applied Physics, vol.  114, no. 11, p. 114510, 2013.
+A.J. Grede and S.L. Rommel, ["Components of channel capacitance in metal-insulator-semiconductor capacitors."](http://dx.doi.org/10.1063/1.4821835) Journal of Applied Physics, vol.  114, no. 11, p. 114510, 2013.
 
 Dependencies
 ------------
@@ -14,7 +14,7 @@ Dependencies
 * `fermi_dirac_half.m`
     + GNU Octave: [GNU Scientific Library Package](http://octave.sourceforge.net/gsl/)
     + MATLAB: A basic method is included if `generalFunctions/fermi_dirac_half_MATLAB.m` is renamed to `fermi_dirac_half.m`
-* [JSONLAB](http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab] (v0.9.1 Included in `fileIO/jsonlab/`)
+* [JSONLAB](http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab) (v0.9.1 Included in `fileIO/jsonlab/`)
 * Only for reading XLS files for analysis of measured data:
     + [Perl 5](http://perl.org)
     + Perl package: [JSON](http://search.cpan.org/dist/JSON/) >=v2.59
