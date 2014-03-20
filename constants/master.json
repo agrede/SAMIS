@@ -238,7 +238,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"GaP": {
 				"a_lc": ["_NaN_","_NaN_"],
@@ -372,7 +375,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"InP": {
 				"a_lc": ["_NaN_","_NaN_"],
@@ -713,7 +719,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlN": {
 				"a_lc": ["_NaN_","_NaN_"],
@@ -778,7 +787,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"InN": {
 				"a_lc": ["_NaN_","_NaN_"],
@@ -843,7 +855,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			}
 		},
 		"WZB": {
@@ -1033,7 +1048,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlGaAs": {
 				"E_g": [
@@ -1111,7 +1129,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlInAs": {
 				"E_g": [
@@ -1189,7 +1210,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"GaInP": {
 				"E_g": [
@@ -1267,7 +1291,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlInP": {
 				"E_g": [
@@ -1345,7 +1372,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlGaP": {
 				"E_g": [
@@ -1423,7 +1453,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"GaInSb": {
 				"E_g": [
@@ -1501,7 +1534,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlInSb": {
 				"E_g": [
@@ -1579,7 +1615,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlGaSb": {
 				"E_g": [
@@ -1657,7 +1696,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"GaAsSb": {
 				"E_g": [
@@ -1735,7 +1777,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlAsSb": {
 				"E_g": [
@@ -1813,7 +1858,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"InAsSb": {
 				"E_g": [
@@ -1891,7 +1939,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"GaAsP": {
 				"E_g": [
@@ -1969,7 +2020,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"InAsP": {
 				"E_g": [
@@ -2047,7 +2101,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlAsP": {
 				"E_g": [
@@ -2125,7 +2182,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"GaPSb": {
 				"E_g": [
@@ -2203,7 +2263,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"AlPSb": {
 				"E_g": [
@@ -2281,7 +2344,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			},
 			"InPSb": {
 				"E_g": [
@@ -2359,7 +2425,10 @@
 					"_ArraySize_": [6,6,2],
 					"_ArrayData_": ["_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_","_NaN_"]
 				},
-				"kappa": ["_NaN_","_NaN_"]
+				"kappa": ["_NaN_","_NaN_"],
+				"Impurities": {
+					"Donors": "_NaN_"
+				}
 			}
 		}
 	},
@@ -2609,7 +2678,13 @@
 				[0,0,0,0,542000000,0],
 				[0,0,0,0,0,542000000]
 			],
-			"kappa": 10.06
+			"kappa": 10.06,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"GaP": {
 			"a_lc": 5.4505e-10,
@@ -2767,7 +2842,13 @@
 				[0,0,0,0,615000000,0],
 				[0,0,0,0,0,615000000]
 			],
-			"kappa": 9.8
+			"kappa": 9.8,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"InP": {
 			"a_lc": 5.8697e-10,
@@ -3159,7 +3240,13 @@
 				[0,0,0,0,155000000,0],
 				[0,0,0,0,0,155000000]
 			],
-			"kappa": 9.7
+			"kappa": 9.7,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlN": {
 			"a_lc": 4.38e-10,
@@ -3227,7 +3314,13 @@
 				[0,0,0,0,193000000,0],
 				[0,0,0,0,0,193000000]
 			],
-			"kappa": 1
+			"kappa": 1,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"InN": {
 			"a_lc": 4.98e-10,
@@ -3295,7 +3388,13 @@
 				[0,0,0,0,86000000,0],
 				[0,0,0,0,0,86000000]
 			],
-			"kappa": 1
+			"kappa": 1,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		}
 	},
 	"WZB": {
@@ -3440,7 +3539,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0.67
+			"kappa": 0.67,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlGaAs": {
 			"E_g": [
@@ -3521,7 +3626,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlInAs": {
 			"E_g": [
@@ -3602,7 +3713,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"GaInP": {
 			"E_g": [
@@ -3683,7 +3800,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlInP": {
 			"E_g": [
@@ -3764,7 +3887,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlGaP": {
 			"E_g": [
@@ -3845,7 +3974,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"GaInSb": {
 			"E_g": [
@@ -3926,7 +4061,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlInSb": {
 			"E_g": [
@@ -4007,7 +4148,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlGaSb": {
 			"E_g": [
@@ -4088,7 +4235,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"GaAsSb": {
 			"E_g": [
@@ -4169,7 +4322,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlAsSb": {
 			"E_g": [
@@ -4250,7 +4409,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"InAsSb": {
 			"E_g": [
@@ -4331,7 +4496,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"GaAsP": {
 			"E_g": [
@@ -4412,7 +4583,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"InAsP": {
 			"E_g": [
@@ -4493,7 +4670,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlAsP": {
 			"E_g": [
@@ -4574,7 +4757,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"GaPSb": {
 			"E_g": [
@@ -4655,7 +4844,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"AlPSb": {
 			"E_g": [
@@ -4736,7 +4931,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		},
 		"InPSb": {
 			"E_g": [
@@ -4817,7 +5018,13 @@
 				[0,0,0,0,0,0],
 				[0,0,0,0,0,0]
 			],
-			"kappa": 0
+			"kappa": 0,
+			"Impurities": {
+				"Acceptors": {
+				},
+				"Donors": {
+				}
+			}
 		}
 	},
 	"preamble": {
@@ -4851,6 +5058,6 @@
 				]
 			}
 		],
-		"compiled": "20140217T204635"
+		"compiled": "20140320T035843"
 	}
 }

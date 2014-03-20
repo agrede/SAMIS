@@ -69,12 +69,17 @@ for n=1:length(FN)
          tmp(logical(isnan(tmp))) = 0;
        endif
      end
-  else                                  % Parameter does not exist
-     if (bowing)
-       tmp = zeros(size(FMT.(FN{n}).default));
-     else
-       tmp = FMT.(FN{n}).default;
-     endif
+  elseif (strcmp(FN{n},'Impurities')) % For missing parameters
+    Values.Impurities = struct;
+    Values.Impurities.Acceptors = struct;
+    Values.Impurities.Donors = struct;
+    Ranges.Impurities = struct;
+    Ranges.Impurities.Donors = nan;
+    Ranges.Impurities.Donors = nan;
+  elseif (bowing)
+    tmp = zeros(size(FMT.(FN{n}).default));
+  else
+    tmp = FMT.(FN{n}).default;
   endif
 
   % Set parameter value and range ----------------------------------------------
