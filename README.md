@@ -14,7 +14,7 @@ Dependencies
 * `fermi_dirac_half.m`
     + GNU Octave: [GNU Scientific Library Package](http://octave.sourceforge.net/gsl/)
     + MATLAB: A basic method is included if `generalFunctions/fermi_dirac_half_MATLAB.m` is renamed to `fermi_dirac_half.m`
-* [JSONLAB](http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab) (v0.9.1 Included in `fileIO/jsonlab/`)
+* [JSONLAB](http://iso2mesh.sourceforge.net/cgi-bin/index.cgi?jsonlab) (v1.0 beta Included in `fileIO/jsonlab/`)
 * Only for reading XLS files for analysis of measured data:
     + [Perl 5](http://perl.org)
     + Perl package: [JSON](http://search.cpan.org/dist/JSON/) >=v2.59
