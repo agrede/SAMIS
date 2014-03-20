@@ -1,26 +1,19 @@
-function data = loadjson(fname,varargin)
+function data = loadubjson(fname,varargin)
 %
-% data=loadjson(fname,opt)
+% data=loadubjson(fname,opt)
 %    or
-% data=loadjson(fname,'param1',value1,'param2',value2,...)
+% data=loadubjson(fname,'param1',value1,'param2',value2,...)
 %
 % parse a JSON (JavaScript Object Notation) file or string
 %
 % authors:Qianqian Fang (fangq<at> nmr.mgh.harvard.edu)
-%            date: 2011/09/09
-%         Nedialko Krouchev: http://www.mathworks.com/matlabcentral/fileexchange/25713
-%            date: 2009/11/02
-%         François Glineur: http://www.mathworks.com/matlabcentral/fileexchange/23393
-%            date: 2009/03/22
-%         Joel Feenstra:
-%         http://www.mathworks.com/matlabcentral/fileexchange/20565
-%            date: 2008/07/03
+%            date: 2013/08/01
 %
-% $Id: loadjson.m 415 2013-10-07 16:38:31Z fangq $
+% $Id: loadubjson.m 417 2014-01-21 22:34:49Z fangq $
 %
 % input:
 %      fname: input file name, if fname contains "{}" or "[]", fname
-%             will be interpreted as a JSON string
+%             will be interpreted as a UBJSON string
 %      opt: a struct to store parsing options, opt can be replaced by 
 %           a list of ('param',value) pairs. The param string is equivallent
 %           to a field in opt.
@@ -40,8 +33,8 @@ global pos inStr len  esc index_esc len_esc isoct arraytoken
 if(regexp(fname,'[\{\}\]\[]','once'))
    string=fname;
 elseif(exist(fname,'file'))
-   fid = fopen(fname,'rt');
-   string = fscanf(fid,'%c');
+   fid = fopen(fname,'rb');
+   string = fread(fid,inf,'uint8=>char')';
    fclose(fid);
 else
    error('input file does not exist');
@@ -134,7 +127,7 @@ if(~isempty(strmatch('x0x5F_ArrayType_',fn)) && ~isempty(strmatch('x0x5F_ArrayDa
     if(~isempty(strmatch('x0x5F_ArrayIsSparse_',fn)))
         if(data(j).x0x5F_ArrayIsSparse_)
             if(~isempty(strmatch('x0x5F_ArraySize_',fn)))
-                dim=data(j).x0x5F_ArraySize_;
+                dim=double(data(j).x0x5F_ArraySize_);
                 if(iscpx && size(ndata,2)==4-any(dim==1))
                     ndata(:,end-1)=complex(ndata(:,end-1),ndata(:,end));
                 end
@@ -175,89 +168,111 @@ end
 function object = parse_object(varargin)
     parse_char('{');
     object = [];
+    type='';
+    count=-1;
+    if(next_char == '$')
+        type=inStr(pos+1); % TODO
+        pos=pos+2;
+    end
+    if(next_char == '#')
+        pos=pos+1;
+        count=double(parse_number());
+    end
     if next_char ~= '}'
+        num=0;
         while 1
             str = parseStr(varargin{:});
             if isempty(str)
                 error_pos('Name of value at position %d cannot be empty');
             end
-            parse_char(':');
+            %parse_char(':');
             val = parse_value(varargin{:});
+            num=num+1;
             eval( sprintf( 'object.%s  = val;', valid_field(str) ) );
-            if next_char == '}'
+            if next_char == '}' || (count>=0 && num>=count)
                 break;
             end
-            parse_char(',');
+            %parse_char(',');
         end
     end
-    parse_char('}');
+    if(count==-1)
+        parse_char('}');
+    end
 
 %%-------------------------------------------------------------------------
+function [cid,len]=elem_info(type)
+id=strfind('iUIlLdD',type);
+dataclass={'int8','uint8','int16','int32','int64','single','double'};
+bytelen=[1,1,2,4,8,4,8];
+if(id>0)
+    cid=dataclass{id};
+    len=bytelen(id);
+else
+    error_pos('unsupported type at position %d');
+end
+%%-------------------------------------------------------------------------
+
+
+function [data adv]=parse_block(type,count,varargin)
+global pos inStr isoct
+[cid,len]=elem_info(type);
+if(isoct)
+    data=typecast(int8(inStr(pos:pos+len*count-1)),cid);
+else
+    data=typecast(uint8(inStr(pos:pos+len*count-1)),cid);
+end
+adv=double(len*count);
+
+%%-------------------------------------------------------------------------
+
 
 function object = parse_array(varargin) % JSON array is written in row-major order
 global pos inStr isoct
     parse_char('[');
     object = cell(0, 1);
-    dim2=[];
+    dim=[];
+    type='';
+    count=-1;
+    if(next_char == '$')
+        type=inStr(pos+1);
+        pos=pos+2;
+    end
+    if(next_char == '#')
+        pos=pos+1;
+        if(next_char=='[')
+            dim=parse_array(varargin{:});
+            count=prod(double(dim));
+        else
+            count=double(parse_number());
+        end
+    end
+    if(~isempty(type))
+        if(count>=0)
+            [object adv]=parse_block(type,count,varargin{:});
+            if(~isempty(dim))
+                object=reshape(object,dim);
+            end
+            pos=pos+adv;
+            return;
+        else
+            endpos=matching_bracket(inStr,pos);
+            [cid,len]=elem_info(type);
+            count=(endpos-pos)/len;
+            [object adv]=parse_block(type,count,varargin{:});
+            pos=pos+adv;
+            parse_char(']');
+            return;
+        end
+    end
     if next_char ~= ']'
-        [endpos e1l e1r maxlevel]=matching_bracket(inStr,pos);
-        arraystr=['[' inStr(pos:endpos)];
-        arraystr=regexprep(arraystr,'"_NaN_"','NaN');
-        arraystr=regexprep(arraystr,'"([-+]*)_Inf_"','$1Inf');
-        arraystr(find(arraystr==sprintf('\n')))=[];
-        arraystr(find(arraystr==sprintf('\r')))=[];
-        %arraystr=regexprep(arraystr,'\s*,',','); % this is slow,sometimes needed
-        if(~isempty(e1l) && ~isempty(e1r)) % the array is in 2D or higher D
-            astr=inStr((e1l+1):(e1r-1));
-            astr=regexprep(astr,'"_NaN_"','NaN');
-            astr=regexprep(astr,'"([-+]*)_Inf_"','$1Inf');
-            astr(find(astr==sprintf('\n')))=[];
-            astr(find(astr==sprintf('\r')))=[];
-            astr(find(astr==' '))='';
-            if(isempty(find(astr=='[', 1))) % array is 2D
-                dim2=length(sscanf(astr,'%f,',[1 inf]));
-            end
-        else % array is 1D
-            astr=arraystr(2:end-1);
-            astr(find(astr==' '))='';
-            [obj count errmsg nextidx]=sscanf(astr,'%f,',[1,inf]);
-            if(nextidx>=length(astr)-1)
-                object=obj;
-                pos=endpos;
-                parse_char(']');
-                return;
-            end
-        end
-        if(~isempty(dim2))
-            astr=arraystr;
-            astr(find(astr=='['))='';
-            astr(find(astr==']'))='';
-            astr(find(astr==' '))='';
-            [obj count errmsg nextidx]=sscanf(astr,'%f,',inf);
-            if(nextidx>=length(astr)-1)
-                object=reshape(obj,dim2,numel(obj)/dim2)';
-                pos=endpos;
-                parse_char(']');
-                return;
-            end
-        end
-        arraystr=regexprep(arraystr,'\]\s*,','];');
-        try
-           if(isoct && regexp(arraystr,'"','once'))
-                error('Octave eval can produce empty cells for JSON-like input');
-           end
-           object=eval(arraystr);
-           pos=endpos;
-        catch
          while 1
             val = parse_value(varargin{:});
             object{end+1} = val;
             if next_char == ']'
                 break;
             end
-            parse_char(',');
+            %parse_char(',');
          end
-        end
     end
     if(jsonopt('SimplifyCell',0,varargin{:})==1)
       try
@@ -271,7 +286,9 @@ global pos inStr isoct
       catch
       end
     end
-    parse_char(']');
+    if(count==-1)
+        parse_char(']');
+    end
 
 %%-------------------------------------------------------------------------
 
@@ -306,82 +323,43 @@ function skip_whitespace
 
 %%-------------------------------------------------------------------------
 function str = parseStr(varargin)
-    global pos inStr len  esc index_esc len_esc
+    global pos inStr esc index_esc len_esc
  % len, ns = length(inStr), keyboard
-    if inStr(pos) ~= '"'
-        error_pos('String starting with " expected at position %d');
+    type=inStr(pos);
+    if type ~= 'S' && type ~= 'C' && type ~= 'H'
+        error_pos('String starting with S expected at position %d');
     else
         pos = pos + 1;
     end
-    str = '';
-    while pos <= len
-        while index_esc <= len_esc && esc(index_esc) < pos
-            index_esc = index_esc + 1;
-        end
-        if index_esc > len_esc
-            str = [str inStr(pos:len)];
-            pos = len + 1;
-            break;
-        else
-            str = [str inStr(pos:esc(index_esc)-1)];
-            pos = esc(index_esc);
-        end
-        nstr = length(str); switch inStr(pos)
-            case '"'
-                pos = pos + 1;
-                if(~isempty(str))
-                    if(strcmp(str,'_Inf_'))
-                        str=Inf;
-                    elseif(strcmp(str,'-_Inf_'))
-                        str=-Inf;
-                    elseif(strcmp(str,'_NaN_'))
-                        str=NaN;
-                    end
-                end
-                return;
-            case '\'
-                if pos+1 > len
-                    error_pos('End of file reached right after escape character');
-                end
-                pos = pos + 1;
-                switch inStr(pos)
-                    case {'"' '\' '/'}
-                        str(nstr+1) = inStr(pos);
-                        pos = pos + 1;
-                    case {'b' 'f' 'n' 'r' 't'}
-                        str(nstr+1) = sprintf(['\' inStr(pos)]);
-                        pos = pos + 1;
-                    case 'u'
-                        if pos+4 > len
-                            error_pos('End of file reached in escaped unicode character');
-                        end
-                        str(nstr+(1:6)) = inStr(pos-1:pos+4);
-                        pos = pos + 5;
-                end
-            otherwise % should never happen
-                str(nstr+1) = inStr(pos), keyboard
-                pos = pos + 1;
-        end
+    if(type == 'C')
+        str=inStr(pos);
+        pos=pos+1;
+        return;
     end
-    error_pos('End of file while expecting end of inStr');
+    bytelen=double(parse_number());
+    if(length(inStr)>=pos+bytelen-1)
+        str=inStr(pos:pos+bytelen-1);
+        pos=pos+bytelen;
+    else
+        error_pos('End of file while expecting end of inStr');
+    end
 
 %%-------------------------------------------------------------------------
 
 function num = parse_number(varargin)
     global pos inStr len isoct
-    currstr=inStr(pos:end);
-    numstr=0;
-    if(isoct~=0)
-        numstr=regexp(currstr,'^\s*-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+\-]?\d+)?','end');
-        [num, one] = sscanf(currstr, '%f', 1);
-        delta=numstr+1;
-    else
-        [num, one, err, delta] = sscanf(currstr, '%f', 1);
-        if ~isempty(err)
-            error_pos('Error reading number at position %d');
-        end
+    id=strfind('iUIlLdD',inStr(pos));
+    if(isempty(id))
+        error_pos('expecting a number at position %d');
     end
-    pos = pos + delta-1;
+    type={'int8','uint8','int16','int32','int64','single','double'};
+    bytelen=[1,1,2,4,8,4,8];
+    if(isoct)
+        num=typecast(int8(inStr(pos+1:pos+bytelen(id))),type{id});
+    else
+        num=typecast(uint8(inStr(pos+1:pos+bytelen(id))),type{id});
+    end
+    pos = pos + bytelen(id)+1;
 
 %%-------------------------------------------------------------------------
 
@@ -390,7 +368,7 @@ function val = parse_value(varargin)
     true = 1; false = 0;
 
     switch(inStr(pos))
-        case '"'
+        case {'S','C','H'}
             val = parseStr(varargin{:});
             return;
         case '['
@@ -406,27 +384,21 @@ function val = parse_value(varargin)
                 val = struct;
             end
             return;
-        case {'-','0','1','2','3','4','5','6','7','8','9'}
+        case {'i','U','I','l','L','d','D'}
             val = parse_number(varargin{:});
             return;
-        case 't'
-            if pos+3 <= len && strcmpi(inStr(pos:pos+3), 'true')
-                val = true;
-                pos = pos + 4;
-                return;
-            end
-        case 'f'
-            if pos+4 <= len && strcmpi(inStr(pos:pos+4), 'false')
-                val = false;
-                pos = pos + 5;
-                return;
-            end
-        case 'n'
-            if pos+3 <= len && strcmpi(inStr(pos:pos+3), 'null')
-                val = [];
-                pos = pos + 4;
-                return;
-            end
+        case 'T'
+            val = true;
+            pos = pos + 1;
+            return;
+        case 'F'
+            val = false;
+            pos = pos + 1;
+            return;
+        case {'Z','N'}
+            val = [];
+            pos = pos + 1;
+            return;
     end
     error_pos('Value expected at position %d');
 %%-------------------------------------------------------------------------

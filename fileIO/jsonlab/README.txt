@@ -3,9 +3,9 @@
 =           An open-source MATLAB/Octave JSON encoder and decoder             =
 ===============================================================================
 
-*Copyright (c) 2011,2012  Qianqian Fang <fangq at nmr.mgh.harvard.edu>
+*Copyright (c) 2011-2014  Qianqian Fang <fangq at nmr.mgh.harvard.edu>
 *License: BSD or GNU General Public License version 3 (GPL v3), see License*.txt
-*Version: 0.9.1 (Rodimus - Update 1)
+*Version: 0.9.9 (Optimus - beta)
 
 -------------------------------------------------------------------------------
 
@@ -27,16 +27,27 @@ to represent complex and hierarchical data. It is as powerful as
 [http://en.wikipedia.org/wiki/XML XML], but less verbose. JSON format is widely 
 used for data-exchange in applications, and is essential for the wild success 
 of [http://en.wikipedia.org/wiki/Ajax_(programming) Ajax] and 
-[http://en.wikipedia.org/wiki/Web_2.0 Web2.0]. With the fast advance of 
-web-based technologies, We envision that JSON will serve as a mainstream 
-data-exchange format for scientific research in the future, and
-fulfill part of the roles achieved by [http://www.hdfgroup.org/HDF5/whatishdf5.html HDF5].
+[http://en.wikipedia.org/wiki/Web_2.0 Web2.0]. 
 
-JSONlab is a free and open-source implementation of a JSON encoder and a 
-decoder in the native MATLAB language. It can be used to convert a MATLAB 
+UBJSON (Universal Binary JSON) is a binary JSON format, specifically 
+optimized for compact file size and better performance while keeping
+the semantics as simple as the text-based JSON format. Using the UBJSON
+format allows to wrap complex binary data in a flexible and extensible
+structure, making it possible to process complex and large dataset 
+without accuracy loss due to text conversions.
+
+We envision that both JSON and its binary version will serve as part of 
+the mainstream data-exchange formats for scientific research in the future. 
+It will provide the flexibility and generality achieved by other popular 
+general-purpose file specifications, such as
+[http://www.hdfgroup.org/HDF5/whatishdf5.html HDF5], with significantly 
+reduced complexity and enhanced performance.
+
+JSONlab is a free and open-source implementation of a JSON/UBJSON encoder 
+and a decoder in the native MATLAB language. It can be used to convert a MATLAB 
 data structure (array, struct, cell, struct array and cell array) into 
-JSON formatted text, or to decode a JSON file into MATLAB data. JSONlab 
-supports both MATLAB and  
+JSON/UBJSON formatted strings, or to decode a JSON/UBJSON file into MATLAB 
+data structure. JSONlab supports both MATLAB and  
 [http://www.gnu.org/software/octave/ GNU Octave] (a free MATLAB clone).
 
 -------------------------------------------------------------------------------
@@ -60,8 +71,9 @@ output, that means JSONlab is installed for MATLAB/Octave.
 III.Using JSONlab
 
 JSONlab provides two functions, loadjson.m -- a MATLAB->JSON decoder, 
-and savejson.m -- a MATLAB->JSON encoder. The detailed help info for 
-the two functions can be found below:
+and savejson.m -- a MATLAB->JSON encoder, for the text-based JSON, and 
+two equivallent functions -- loadubjson and saveubjson for the binary 
+JSON. The detailed help info for the four functions can be found below:
 
 === loadjson.m ===
 <pre>
@@ -81,7 +93,7 @@ the two functions can be found below:
           http://www.mathworks.com/matlabcentral/fileexchange/20565
              date: 2008/07/03
  
-  $Id: loadjson.m 371 2012-06-20 12:43:06Z fangq $
+  $Id: loadjson.m 394 2012-12-18 17:58:11Z fangq $
  
   input:
        fname: input file name, if fname contains "{}" or "[]", fname
@@ -109,7 +121,7 @@ the two functions can be found below:
   author: Qianqian Fang (fangq<at> nmr.mgh.harvard.edu)
              created on 2011/09/09
  
-  $Id: savejson.m 371 2012-06-20 12:43:06Z fangq $
+  $Id: savejson.m 394 2012-12-18 17:58:11Z fangq $
  
   input:
        rootname: name of the root-object, if set to '', will use variable name
@@ -169,6 +181,97 @@ the two functions can be found below:
        savejson('',a,'ArrayIndent',0,'FloatFormat','\t%.5g')
 </pre>
 
+=== loadubjson.m ===
+
+<pre>
+  data=loadubjson(fname,opt)
+     or
+  data=loadubjson(fname,'param1',value1,'param2',value2,...)
+ 
+  parse a JSON (JavaScript Object Notation) file or string
+ 
+  authors:Qianqian Fang (fangq<at> nmr.mgh.harvard.edu)
+             date: 2013/08/01
+ 
+  $Id: loadubjson.m 410 2013-08-24 03:33:18Z fangq $
+ 
+  input:
+       fname: input file name, if fname contains "{}" or "[]", fname
+              will be interpreted as a UBJSON string
+       opt: a struct to store parsing options, opt can be replaced by 
+            a list of ('param',value) pairs. The param string is equivallent
+            to a field in opt.
+ 
+  output:
+       dat: a cell array, where {...} blocks are converted into cell arrays,
+            and [...] are converted to arrays
+</pre>
+
+=== saveubjson.m ===
+
+<pre>
+  json=saveubjson(rootname,obj,filename)
+     or
+  json=saveubjson(rootname,obj,opt)
+  json=saveubjson(rootname,obj,'param1',value1,'param2',value2,...)
+ 
+  convert a MATLAB object (cell, struct or array) into a Universal 
+  Binary JSON (UBJSON) binary string
+ 
+  author: Qianqian Fang (fangq<at> nmr.mgh.harvard.edu)
+             created on 2013/08/17
+ 
+  $Id: saveubjson.m 410 2013-08-24 03:33:18Z fangq $
+ 
+  input:
+       rootname: name of the root-object, if set to '', will use variable name
+       obj: a MATLAB object (array, cell, cell array, struct, struct array)
+       filename: a string for the file name to save the output JSON data
+       opt: a struct for additional options, use [] if all use default
+         opt can have the following fields (first in [.|.] is the default)
+ 
+         opt.FileName [''|string]: a file name to save the output JSON data
+         opt.ArrayToStruct[0|1]: when set to 0, saveubjson outputs 1D/2D
+                          array in JSON array format; if sets to 1, an
+                          array will be shown as a struct with fields
+                          "_ArrayType_", "_ArraySize_" and "_ArrayData_"; for
+                          sparse arrays, the non-zero elements will be
+                          saved to _ArrayData_ field in triplet-format i.e.
+                          (ix,iy,val) and "_ArrayIsSparse_" will be added
+                          with a value of 1; for a complex array, the 
+                          _ArrayData_ array will include two columns 
+                          (4 for sparse) to record the real and imaginary 
+                          parts, and also "_ArrayIsComplex_":1 is added. 
+         opt.ParseLogical [1|0]: if this is set to 1, logical array elem
+                          will use true/false rather than 1/0.
+         opt.NoRowBracket [1|0]: if this is set to 1, arrays with a single
+                          numerical element will be shown without a square
+                          bracket, unless it is the root object; if 0, square
+                          brackets are forced for any numerical arrays.
+         opt.ForceRootName [0|1]: when set to 1 and rootname is empty, saveubjson
+                          will use the name of the passed obj variable as the 
+                          root object name; if obj is an expression and 
+                          does not have a name, 'root' will be used; if this 
+                          is set to 0 and rootname is empty, the root level 
+                          will be merged down to the lower level.
+         opt.JSONP [''|string]: to generate a JSONP output (JSON with padding),
+                          for example, if opt.JSON='foo', the JSON data is
+                          wrapped inside a function call as 'foo(...);'
+         opt.UnpackHex [1|0]: conver the 0x[hex code] output by loadjson 
+                          back to the string form
+         opt can be replaced by a list of ('param',value) pairs. The param 
+         string is equivallent to a field in opt.
+  output:
+       json: a string in the JSON format (see http://json.org)
+ 
+  examples:
+       a=struct('node',[1  9  10; 2 1 1.2], 'elem',[9 1;1 2;2 3],...
+            'face',[9 01 2; 1 2 3; NaN,Inf,-Inf], 'author','FangQ');
+       saveubjson('mesh',a)
+       saveubjson('',a,'ArrayIndent',0,'FloatFormat','\t%.5g')
+</pre>
+
+
 === examples ===
 
 Under the "examples" folder, you can find several scripts to demonstrate the
@@ -176,6 +279,8 @@ basic utilities of JSONlab. Running the "demo_jsonlab_basic.m" script, you
 will see the conversions from MATLAB data structure to JSON text and backward.
 In "jsonlab_selftest.m", we load complex JSON files downloaded from the Internet
 and validate the loadjson/savejson functions for regression testing purposes.
+Similarly, a "demo_ubjson_basic.m" script is provided to test the saveubjson
+and loadubjson pairs for various matlab data structures.
 
 Please run these examples and understand how JSONlab works before you use
 it to process your data.
@@ -194,6 +299,11 @@ Here are the known issues:
 can give different field-names; you can use feature('DefaultCharacterSet','latin1') \
 in MATLAB to get consistant results
 # Can not handle classes.
+# saveubjson has not yet supported arbitrary data ([H] in the UBJSON specification)
+# saveubjson now converts a logical array into a uint8 ([U]) array for now
+# an unofficial N-D array count syntax is implemented in saveubjson. We are \
+actively communicating with the UBJSON spec maintainer to investigate the \
+possibility of making it upstream
 
 -------------------------------------------------------------------------------
 
@@ -205,7 +315,7 @@ that everyone else can enjoy the improvement. For anyone who want to contribute,
 please download JSONlab source code from it's subversion repository by using the
 following command:
 
- svn co https://iso2mesh.svn.sourceforge.net/svnroot/iso2mesh/trunk/jsonlab jsonlab
+ svn checkout svn://svn.code.sf.net/p/iso2mesh/code/trunk/jsonlab jsonlab
 
 You can make changes to the files as needed. Once you are satisfied with your
 changes, and ready to share it with others, please cd the root directory of 

@@ -11,7 +11,7 @@ function json=savejson(rootname,obj,varargin)
 % author: Qianqian Fang (fangq<at> nmr.mgh.harvard.edu)
 %            created on 2011/09/09
 %
-% $Id: savejson.m 394 2012-12-18 17:58:11Z fangq $
+% $Id: savejson.m 415 2013-10-07 16:38:31Z fangq $
 %
 % input:
 %      rootname: name of the root-object, if set to '', will use variable name
@@ -157,9 +157,9 @@ if(len>1)
     end
 elseif(len==0)
     if(~isempty(name))
-        txt=sprintf('%s"%s": null',padding0, checkname(name,varargin{:})); name=''; 
+        txt=sprintf('%s"%s": []',padding0, checkname(name,varargin{:})); name=''; 
     else
-        txt=sprintf('%snull',padding0); 
+        txt=sprintf('%s[]',padding0); 
     end
 end
 for i=1:len
