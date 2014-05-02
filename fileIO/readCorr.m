@@ -46,18 +46,18 @@ function rtn = readCorr(path,cal)
   % Used for measCorrection
   rtn.Z = [];
   rtn.f = [];
-  
+
   cal_values = loadjson(cal);
 
   paths = glob(strcat(path,'*.xls'));
   k = 1; % Counter for reference capacitors
   for n = 1:length(paths)
-    [tmpS,tmpE,tmpTE,tmpM,tmpT,tmpNM,tmpSP] = regexp(paths{n},'([^\\./]*)\\.xls$');
+    [tmpS,tmpE,tmpTE,tmpM,tmpT,tmpNM,tmpSP] = regexp(paths{n},'([^\./]*)\.xls$');
     calStd = strcat('r',tmpT{1}{1});
     if (isfield(cal_values.reference_values,calStd))
        tmpStd = cal_values.reference_values.(calStd);
        tmp = readCF(paths{n});
-       
+
        if (n==1) % Set frequency
          rtn.f = tmp.f(1,:);
        elseif (size(rtn.f,2) == size(tmp.f,2) && ~rtn.fmismatch) % Make sure freq never changes
@@ -65,7 +65,7 @@ function rtn = readCorr(path,cal)
        else
          rtn.fmismatch = 1;
        endif
-       
+
        if (strcmp(tmpStd.type,'short'))
          rtn.Zsm       = nanmean(tmp.Z,1);
          rtn.stdev.Zsm = std(tmp.Z,0,1);
@@ -85,7 +85,7 @@ function rtn = readCorr(path,cal)
          rtn.stdev.Crm(k,:) = std(tmp.C,0,1);
          rtn.Grm(k,:)       = nanmean(tmp.G,1);
          rtn.stdev.Grm(k,:) = std(tmp.G,0,1);
-         
+
          tmpImp = findImpParams(1,tmp.f(1,:),0,tmpStd.C);
          rtn.Cr(k,1)     = tmpStd.C;
          rtn.err.Cr(k,1) = tmpStd.C_error;
@@ -102,5 +102,5 @@ function rtn = readCorr(path,cal)
   rtn.Z = rtn.Zrm;
   rtn.Cor.osc = measCorrection(rtn.Zom,rtn.Zom,rtn.Zsm,rtn);
   rtn.Cor.LC  = measCorrection(rtn.LC,rtn.Zom,rtn.Zsm,rtn);
-  
+
 endfunction
