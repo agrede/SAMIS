@@ -31,7 +31,7 @@ if (size(Y,2) > 19)
                                      floor((size(clrs,1)-size(Y,2))/2)...
                                     -1+(1:size(Y,2)),:),1));
 else
-    clrs = jet(floor(size(Y,2)+2));
+    clrs = jet(size(Y,2)+2);
     set(gca, 'ColorOrder', flipdim(clrs(2:(end-1),:),1));
 endif
 
