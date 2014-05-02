@@ -24,8 +24,16 @@ function A = plotMany(X,Y,xLab,yLab,legendPoints,legendTitles,legendPos,lw)
 A = struct;
 
 % Set colors, uses slightly inset color range
-clrs = jet(floor(size(Y,2).*1.2));
-set(gca,'ColorOrder',flipdim(clrs(floor((size(clrs,1)-size(Y,2))/2)-1+(1:size(Y,2)),:),1));
+
+if (size(Y,2) > 19)
+  clrs = jet(floor(size(Y,2).*1.2));
+  set(gca,'ColorOrder',flipdim(clrs(...
+                                     floor((size(clrs,1)-size(Y,2))/2)...
+                                    -1+(1:size(Y,2)),:),1));
+else
+    clrs = jet(floor(size(Y,2)+2));
+    set(gca, 'ColorOrder', flipdim(clrs(2:(end-1),:),1));
+endif
 
 
 A.p = plot(X,Y);
