@@ -55,118 +55,12 @@ if (nargin < 8)
   approxV = [2;2;2];
 endif
 
-Mos = struct;
+Mos = semiProps(Stack.Chan,T,Param,PC);
 
 Mos.Cox = cox(Stack,Param,PC);
 
 kT = PC.kB.*T; % Usefull shorthand
 
-if (length(Stack.Chan.groupB)<1)
-% Group IV assumed
-elseif (length(Stack.Chan.groupA)+length(Stack.Chan.groupB)<3)
-  % Binary Assumed
-  mat = strcat(Stack.Chan.groupA,Stack.Chan.groupB);
-  A = moscParam(Param.(Stack.Chan.crystalStructure).(mat),T,PC);
-  Mos.me = A.me;
-  Mos.mh = A.mh;
-  Mos.Eg = A.Eg;
-  Mos.delta_so = A.delta_so;
-  Mos.kappas = A.kappas;
-  Mos.Impurities = A.Impurities;
-else
-  % Combination of ternaries (only can do up to quaternary?)
-  [mats, weights] = ternaryPermitations(Stack.Chan.groupA,Stack.Chan.groupB,...
-                                        Stack.Chan.weightsA,Stack.Chan.weightsB);
-  Mos.mats = mats;
-  Mos.weights = weights;
-  % Initialize Variables
-  Mos.me = [0;0;0];
-  Mos.mh = [0;0;0];
-  Mos.Eg = [0;0;0];
-  Mos.delta_so = 0;
-  Mos.kappas = 0;
-  Mos.Impurities = struct;
-  Mos.Impurities.Acceptors = struct;
-  Mos.Impurities.Donors = struct;
-
-  % Add weighted combinations
-  for k=1:size(mats,2)
-    A = moscParam(Param.(Stack.Chan.crystalStructure).(mats{1,k}),T,PC);
-    B = moscParam(Param.(Stack.Chan.crystalStructure).(mats{2,k}),T,PC);
-    C = struct;
-
-    if (isfield(Param.(strcat('Bow_',Stack.Chan.crystalStructure)),mats{3,k}))
-      C = Param.(strcat('Bow_',Stack.Chan.crystalStructure)).(mats{3,k});
-      C.Eg = C.E_g+weights(2,k).*C.E_g_1;
-      C.kappas = C.kappa;
-      C.me = [C.meffe;C.meffDOS];
-      C.mh = [C.meffhh;C.mefflh;C.meffso];
-    else
-      C.Eg = 0;
-      C.me = 0;
-      C.mh = 0;
-      C.kappas = 0;
-      C.delta_so = 0;
-    endif
-    iType = {'Donors','Acceptors'};
-    for k2 = 1:2
-      impElmts = unique([fieldnames(A.Impurities.(iType{k2}));...
-                                   fieldnames(B.Impurities.(iType{k2}))]);
-      for k3 = 1:length(impElmts)
-        if (~isfield(Mos.Impurities.(iType{k2}),impElmts{k3}))
-          Mos.Impurities.(iType{k2}).(impElmts{k3}) = 0;
-        endif
-
-        if (isfield(A.Impurities.(iType{k2}),impElmts{k3}))
-          a = A.Impurities.(iType{k2}).(impElmts{k3});
-        else
-          a = B.Impurities.(iType{k2}).(impElmts{k3});
-        endif
-
-        if (isfield(B.Impurities.(iType{k2}),impElmts{k3}))
-          b = B.Impurities.(iType{k2}).(impElmts{k3});
-        else
-          b = A.Impurities.(iType{k2}).(impElmts{k3});
-        endif
-        if (isfield(C,'Impurities'))
-          if (isfield(C.Impurities.(iType{k2}),impElmts{k3}))
-            c = C.Impurities.(iType{k2}).(impElmts{k3});
-          else
-            c = 0;
-          endif
-        else
-          c = 0;
-        endif
-
-        Mos.Impurities.(iType{k2}).(impElmts{k3}) =...
-             Mos.Impurities.(iType{k2}).(impElmts{k3})...
-             +weights(3,k).*bowing(a,b,c,weights(:,k));
-      endfor
-    endfor
-    Mos.me = Mos.me + weights(3,k).*bowing(A.me,B.me,C.me,weights(:,k));
-    Mos.Eg = Mos.Eg + weights(3,k).*bowing(A.Eg,B.Eg,C.Eg,weights(:,k));
-    Mos.kappas = Mos.kappas + weights(3,k).*bowing(A.kappas,B.kappas,...
-                                                   C.kappas,weights(:,k));
-    Mos.mh = Mos.mh +weights(3,k).*bowing(A.mh,B.mh,C.mh,weights(:,k));
-    Mos.delta_so = Mos.delta_so +weights(3,k).*bowing(A.delta_so,...
-                                                      B.delta_so,...
-                                                      C.delta_so,...
-                                                      weights(:,k));
-  endfor
-  % Divide by sum of weights
-  Mos.me = Mos.me./sum(weights(3,:));
-  Mos.mh = Mos.mh./sum(weights(3,:));
-  Mos.Eg = Mos.Eg./sum(weights(3,:));
-  Mos.kappas = Mos.kappas./sum(weights(3,:));
-  Mos.delta_so = Mos.delta_so./sum(weights(3,:));
-  for k2 = 1:2
-    impElmts = fieldnames(Mos.Impurities.(iType{k2}));
-    for k3 = 1:length(impElmts)
-      Mos.Impurities.(iType{k2}).(impElmts{k3}) = ...
-          Mos.Impurities.(iType{k2}).(impElmts{k3})./sum(weights(3,:));
-    endfor
-  endfor
-endif
 Mos.etaV = -min(Mos.Eg)./kT;
 Mos.eta = linspace(-(psisRng(1).*PC.e+min(Mos.Eg)),psisRng(2).*PC.e,neta)'./kT;
 Mos.NI = impurities(Mos.eta,Mos.etaV,Stack.Chan.impurities,T,Mos.Impurities,PC);
