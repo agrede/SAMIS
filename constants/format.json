@@ -31,6 +31,149 @@
             "note": "unitless. Schottky barrier pinning factor"
         }
     },
+    "DMD": {
+        "a_lc": {
+            "mult": 1e-10,
+            "default": "_NaN_",
+            "note": "Angstroms at 300K, must have a value"
+        },
+        "a_lcExp": {
+            "mult": 1e-10,
+            "default": 0,
+            "note":"Angstroms/K. For offset from 300K"
+        },
+        "a_lcExp2": {
+            "mult": 1e-10,
+            "default": 0,
+            "note":"Angstroms/K^2. For offset from 300K"},
+        "E_g0": {
+            "mult": "e",
+            "default": [["_Inf_"],["_Inf_"],["_Inf_"]],
+            "note": "eV at 0K, Column vector. one must have value. [Gamma;X;L]"
+        },
+        "alpha": {
+            "mult": ["e",1e-3],
+            "default": [[0],[0],[0]],
+            "note": "meV/K for standard Varishni form. Column vector [Gamma;X;L]"
+        },
+        "alphacoth": {
+            "mult": ["e",1e-3],
+            "default": [[0],[0],[0]],
+            "note": "meV for bandgaps that follow E0+alpha(1-coth(beta/T)) form [Gamma;X;L]"
+        },
+        "beta": {
+            "mult": 1,
+            "default": [[0],[0],[0]],
+            "note": "K for standard Varishni form. [Gamma;X;L]"
+        },
+        "betacoth": {
+            "mult": 1,
+            "default": [[1],[1],[1]],
+            "note": "K for bandgaps that follow E0+alpha(1-coth(beta/T)) form must be nonzero"
+        },
+        "delta_so": {
+            "mult": "e",
+            "default": "_Inf_",
+            "note": "eV mag of diff from valance band"
+        },
+        "meffe": {
+            "mult": "me",
+            "default": 1,
+            "note": "relative to electron mass. must have a value"
+        },
+        "meffl": {
+            "mult": "me",
+            "default": [["_NaN_"],["_NaN_"]],
+            "note": "relative to electron mass. must have a value [X;L]"
+        },
+        "mefft": {
+            "mult": "me",
+            "default": [["_NaN_"],["_NaN_"]],
+            "note": "relative to electron mass. must have a value [X;L]"
+        },
+        "meffDOS": {
+            "mult": "me",
+            "default": [["_NaN_"],["_NaN_"]],
+            "note": "DOS eff mass for [X,L] relative to me, nans may be replaced by meffe"
+        },
+        "meffso": {
+            "mult": "me",
+            "default": "_NaN_",
+            "note": "effective mass of split off band"
+        },
+        "meffhh": {
+            "mult": "me",
+            "default": "_NaN_",
+            "note": "density of states HH mass relative to electron mass"
+        },
+        "mefflh": {
+            "mult": "me",
+            "default":"_NaN_",
+            "note": "density of states LH mass relative to electron mass"
+        },
+        "gamma": {
+            "mult": 1,
+            "default": [["_NaN_"],["_NaN_"],["_NaN_"]],
+            "note": "Unitless. Luttinger paramters [gamma1;gamma2;gamma3]"
+        },
+        "E_P": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "eV"
+        },
+        "F": {
+            "mult": 1,
+            "default": "_NaN_",
+            "note": "Kane parameter"
+        },
+        "VBO": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "Valance band offset"
+        },
+        "a_c": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "eV"
+        },
+        "a_v": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "eV, deformation potential"
+        },
+        "b": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "eV, deformation potential"
+        },
+        "d": {
+            "mult": "e",
+            "default": "_NaN_",
+            "note": "eV, deformation potential"
+        },
+        "C": {
+            "mult": 1e6,
+            "default": [
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0],
+                [0,0,0,0,0,0]
+            ],
+            "note": "GPa Elastic constants"
+        },
+        "kappa": {
+            "mult": 1,
+            "default": 1,
+            "note": "unitless. Dielectric constant at 0Hz"
+        },
+        "Impurities": {
+            "mult": ["e",1e-3],
+            "default": 0,
+            "note": "meV. Ion enrgy for impurities. has Donor and Acceptor structs with elements"
+        }
+    },
     "ZBB": {
         "a_lc": {
             "mult": 1e-10,
