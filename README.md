@@ -40,7 +40,7 @@ Important Functions
 Material Constants
 ------------------
 
-Although GaAs, InAs, GaInAs, Al2O3, SiO2 material constants are provided. Other materials can be added making a new master.json constants file.
+Although Si, III-Vs', Al2O3, SiO2 material constants are provided. Other materials can be added making a new master.json constants file.
 
 * `format.json` is the format for specifying constants
 * Constants used to compile `constants/master.json`:
