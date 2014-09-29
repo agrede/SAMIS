@@ -7,7 +7,7 @@
         }
     ],
     "Chan": {
-        "note": "N_A and N_D must be specified even if 0. Group IV semiconductors only use groupA",
+        "note": "Group IV semiconductors only use groupA",
         "crystalStructure":"ZBB",
         "groupA": [
             "Ga",
