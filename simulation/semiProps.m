@@ -19,7 +19,7 @@ if (length(Props.groupB)<1)
   Semi.Impurities = A.Impurities;
 elseif (length(Props.groupA)+length(Props.groupB)<3)
   % Binary Assumed
-  mat = strcat(Props.groupA,Props.groupB);
+  mat = strcat(Props.groupA{1},Props.groupB{1});
   A = moscParam(Param.(Props.crystalStructure).(mat),T,PC);
   Semi.me = A.me;
   Semi.mh = A.mh;
