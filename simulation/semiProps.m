@@ -16,6 +16,7 @@ if (length(Props.groupB)<1)
   Semi.Eg = A.Eg;
   Semi.delta_so = A.delta_so;
   Semi.kappas = A.kappas;
+  Semi.VBO = A.VBO;
   Semi.Impurities = A.Impurities;
 elseif (length(Props.groupA)+length(Props.groupB)<3)
   % Binary Assumed
@@ -26,6 +27,7 @@ elseif (length(Props.groupA)+length(Props.groupB)<3)
   Semi.Eg = A.Eg;
   Semi.delta_so = A.delta_so;
   Semi.kappas = A.kappas;
+  Semi.VBO = A.VBO;
   Semi.Impurities = A.Impurities;
 else
   % Combination of ternaries (only can do up to quaternary?)
@@ -39,6 +41,7 @@ else
   Semi.Eg = [0;0;0];
   Semi.delta_so = 0;
   Semi.kappas = 0;
+  Semi.VBO = 0;
   Semi.Impurities = struct;
   Semi.Impurities.Acceptors = struct;
   Semi.Impurities.Donors = struct;
@@ -61,6 +64,7 @@ else
       C.mh = 0;
       C.kappas = 0;
       C.delta_so = 0;
+      C.VBO = 0;
     endif
     iType = {'Donors','Acceptors'};
     for k2 = 1:2
@@ -106,6 +110,7 @@ else
                                                       B.delta_so,...
                                                       C.delta_so,...
                                                       weights(:,k));
+    Semi.VBO = Semi.VBO + weights(3,k).*bowing(A.VBO,B.VBO,C.VBO,weights(:,k));
   endfor
   % Divide by sum of weights
   Semi.me = Semi.me./sum(weights(3,:));
@@ -113,6 +118,7 @@ else
   Semi.Eg = Semi.Eg./sum(weights(3,:));
   Semi.kappas = Semi.kappas./sum(weights(3,:));
   Semi.delta_so = Semi.delta_so./sum(weights(3,:));
+  Semi.VBO = Semi.VBO./sum(weights(3,:));
   for k2 = 1:2
     impElmts = fieldnames(Semi.Impurities.(iType{k2}));
     for k3 = 1:length(impElmts)

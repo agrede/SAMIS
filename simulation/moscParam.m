@@ -48,6 +48,8 @@ Mos.delta_so = Param.delta_so;
 
 Mos.kappas = Param.kappa;
 
+Mos.VBO = Param.VBO;
+
 Mos.Impurities = Param.Impurities;
 
 endfunction
