@@ -1,6 +1,6 @@
 function Mos = simMOSCAP(Stack,T,Param,PC,psisRng,neta,approxC,approxV)
 % SIMMOSCAP simulates moscap by solving the carrier concentrations and
-%   poisson distribution
+%   poisson equation
 %
 %   MOS = SIMMOSCAP(STACK,T,PROP,PC)
 %       STACK   = gate stack struct (must use SI units)
