@@ -13,7 +13,7 @@ function res = measCorrection(LC,Zom,Zsm,meas)
 %
 %  NOTE: all measurements must be at same frequency steps
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

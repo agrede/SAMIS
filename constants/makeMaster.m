@@ -7,7 +7,7 @@ function M = makeMaster(paths,PC)
 %       Includes preambles of files in preamble.sources
 %       Adds timestamp in ISO 8601 in preamble.compiled
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

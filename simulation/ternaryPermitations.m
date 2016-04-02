@@ -17,7 +17,7 @@ function [perm,weights] = ternaryPermitations(A,B,wA,wB)
 %               wA      vector of group A weights (ex: [0.8,0.2]) default ones
 %               wB      vector of group B weights (ex: [0.3,0.7]) default ones
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

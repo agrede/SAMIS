@@ -4,7 +4,7 @@ function rtn = readCVF(path,ref)
 %   RTN = READCVF(PATH,REF) reads values and applies corrections from ref
 %   Mostly a wrapper for readCVF.pl
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

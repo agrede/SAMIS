@@ -5,7 +5,7 @@ function [Cgb,VG] = cgbVgb(Sim,Cox,Cit)
 %       COX     oxide capacitance density [F/m^2]
 %       CIT     inteface trap capacitance density [F/m^2]
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

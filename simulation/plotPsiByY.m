@@ -12,7 +12,7 @@ function H = plotPsiByY(psi,y,ind,PC,n)
   %               (otherwise it can be easy to get 1000s of lines)
   % See also: YBYETA
   %
-  % Copyright (C) 2013--2014 Alex J. Grede
+  % Copyright (C) 2013--2016 Alex J. Grede
   % GPL v3, See LICENSE.txt for details
   % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

@@ -12,7 +12,7 @@ function res = exportCV(path,Meas,Sim,Term,Nicol,Cast,Cox,corTyp,corInd,PC)
 %       CORIND  load correction index used (1 for osc)
 %       PC      physical constants
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

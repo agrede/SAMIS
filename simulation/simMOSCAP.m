@@ -40,7 +40,7 @@ function Mos = simMOSCAP(Stack,T,Param,PC,psisRng,neta,approxC,approxV)
 %       Cgb     small-signal capacitance density of ideal device [F/m^2] by psis
 %       VGB     potential bias accross device [V] by psis
 %
-% Copyright (C) 2013--2014 Alex J. Grede
+% Copyright (C) 2013--2016 Alex J. Grede
 % GPL v3, See LICENSE.txt for details
 % This function is part of SAMIS (https://github.com/agrede/SAMIS)
 

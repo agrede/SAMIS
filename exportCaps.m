@@ -15,7 +15,7 @@ function res = exportCaps(path,psis,Cgb,Cox,VGB,Cc,Qc,Caps,k)
   %
   % SEE ALSO: SEPCAPS
   %
-  % Copyright (C) 2013--2014 Alex J. Grede
+  % Copyright (C) 2013--2016 Alex J. Grede
   % GPL v3, See LICENSE.txt for details
   % This function is part of SAMIS (https://github.com/agrede/SAMIS)
   if (nargin < 9)
