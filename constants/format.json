@@ -152,7 +152,7 @@
             "note": "eV, deformation potential"
         },
         "C": {
-            "mult": 1e6,
+            "mult": 1e9,
             "default": [
                 [0,0,0,0,0,0],
                 [0,0,0,0,0,0],
@@ -295,7 +295,7 @@
             "note": "eV, deformation potential"
         },
         "C": {
-            "mult": 1e6,
+            "mult": 1e9,
             "default": [
                 [0,0,0,0,0,0],
                 [0,0,0,0,0,0],
@@ -394,7 +394,7 @@
             "note": "eV. D1-D6"
         },
         "C": {
-            "mult": 1e6,
+            "mult": 1e9,
             "default": [0,0,0,0,0],
             "note": "GPa. c11,c12,c13,c33,c44"
         },
